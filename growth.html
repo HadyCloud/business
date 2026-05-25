@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Social Growth — LocaBey Digital</title>
+<title>SMM Boost Panel — LocaBey</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
@@ -129,6 +129,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
 .hiw-title{font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;color:var(--text)}
 .hiw-desc{font-size:13px;color:var(--text3);line-height:1.7;font-weight:300}
 
+/* AVIS & FAQ */
+.proof-section,.faq-section{max-width:960px;margin:80px auto;padding:0 40px}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.proof-card,.faq-item{background:var(--card);border:1px solid var(--card-border);border-radius:10px;padding:22px}
+.proof-stars{color:var(--orange);letter-spacing:2px;font-size:13px;margin-bottom:12px}
+.proof-text{font-size:14px;color:var(--text2);line-height:1.7;font-weight:300;margin-bottom:16px}
+.proof-name{font-family:'Orbitron',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text)}
+.proof-meta{font-size:12px;color:var(--text3);margin-top:4px}
+.faq-list{display:flex;flex-direction:column;gap:12px;margin-top:32px}
+.faq-q{font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text);margin-bottom:10px}
+.faq-a{font-size:14px;color:var(--text2);line-height:1.75;font-weight:300}
+
 /* FOOTER MINI */
 .mini-footer{text-align:center;padding:40px;border-top:1px solid var(--card-border);font-size:13px;color:var(--text3)}
 .mini-footer a{color:var(--text2);text-decoration:none}
@@ -146,6 +158,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
   .order-summary{position:static}
   .platform-selector{grid-template-columns:repeat(3,1fr)}
   .hiw-grid{grid-template-columns:1fr 1fr}
+  .proof-grid{grid-template-columns:1fr}
   nav{padding:14px 20px}
 }
 @media(max-width:500px){
@@ -153,6 +166,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
   .qty-grid{grid-template-columns:repeat(3,1fr)}
   .service-selector{grid-template-columns:1fr}
   .builder{padding:0 20px}
+  .proof-section,.faq-section{padding:0 20px}
 }
 @media(max-width:640px){
   .pricing-section{padding:0 20px}
@@ -170,9 +184,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
 
 <div class="page-hero">
   <div class="hero-glow"></div>
-  <div class="page-badge anim">⚡ Instant Social Growth</div>
-  <h1 class="page-title anim anim-1">Grow Any Platform</h1>
-  <p class="page-sub anim anim-2">Select your platform, choose your service and quantity. We deliver in 24h. No password required — ever.</p>
+  <div class="page-badge anim">⚡ SMM Boost Panel</div>
+  <h1 class="page-title anim anim-1">Social Media Boost Orders</h1>
+  <p class="page-sub anim anim-2">Choose a platform, select followers, likes, views, comments or other boost services, then send the order request. No password required — ever.</p>
 </div>
 
 <div class="trust-row">
@@ -388,6 +402,60 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
       <div class="hiw-num">Step 04</div>
       <div class="hiw-title">Delivery</div>
       <div class="hiw-desc">Growth starts within hours. Full delivery in 24h. We confirm when done.</div>
+    </div>
+  </div>
+</div>
+
+<!-- AVIS -->
+<div class="proof-section">
+  <div style="text-align:center;margin-bottom:0">
+    <div style="font-size:11px;color:var(--green);letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:12px;justify-content:center;display:flex;align-items:center;gap:12px"><span style="width:30px;height:1px;background:var(--green);display:block"></span>Avis</div>
+    <h2 style="font-family:'Orbitron',sans-serif;font-size:32px;font-weight:900">Boost Orders Feedback</h2>
+  </div>
+  <div class="proof-grid">
+    <div class="proof-card">
+      <div class="proof-stars">★★★★★</div>
+      <p class="proof-text">Fast delivery and easy order flow. I sent the profile URL, chose the quantity and got confirmation the same day.</p>
+      <div class="proof-name">Creator Account</div>
+      <div class="proof-meta">Instagram boost order</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-stars">★★★★★</div>
+      <p class="proof-text">Clear process, no password needed, and the team answered quickly on WhatsApp before launching the order.</p>
+      <div class="proof-name">Local Brand</div>
+      <div class="proof-meta">TikTok views order</div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-stars">★★★★★</div>
+      <p class="proof-text">Useful for social proof on a launch campaign. Pricing was confirmed before payment and delivery was tracked.</p>
+      <div class="proof-name">Event Page</div>
+      <div class="proof-meta">Likes and views package</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <div style="text-align:center;margin-bottom:0">
+    <div style="font-size:11px;color:var(--green);letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:12px;justify-content:center;display:flex;align-items:center;gap:12px"><span style="width:30px;height:1px;background:var(--green);display:block"></span>FAQ</div>
+    <h2 style="font-family:'Orbitron',sans-serif;font-size:32px;font-weight:900">SMM Panel Questions</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q">Do you need my password?</div>
+      <div class="faq-a">No. We only need the public profile, post, video or page URL for the selected platform.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I order?</div>
+      <div class="faq-a">Choose the platform, service and quantity in the command form, then send the pre-filled request by WhatsApp or Instagram DM.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is the price final on the table?</div>
+      <div class="faq-a">The table is indicative. We confirm the exact price before payment, especially for custom quantities or bulk orders.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the difference with the agency?</div>
+      <div class="faq-a">This page is for quick SMM boost orders. The agency page is for real marketing work: websites, SEO, ads, content, photography, menus and long-term growth systems.</div>
     </div>
   </div>
 </div>
