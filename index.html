@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LocaBey — SMM Panel & Marketing Agency</title>
+<title>LocaBey — Social Growth & Marketing Agency</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -121,14 +121,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
 .route-side h3{font-family:'Orbitron',sans-serif;font-size:18px;font-weight:900;margin-bottom:12px}
 .route-side p{font-size:15px;line-height:1.75;color:var(--text2);font-weight:300;margin-bottom:24px}
 .contact-row{display:flex;gap:12px;flex-wrap:wrap}
-.contact-chip{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 18px;border-radius:5px;border:1px solid var(--card-border);text-decoration:none;color:var(--text2);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:.22s}
+.contact-chip{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:8px;border:1px solid var(--card-border);text-decoration:none;color:var(--text2);font-size:20px;font-weight:700;transition:.22s}
 .contact-chip:hover{border-color:var(--green);color:var(--green)}
-
-.vision{background:linear-gradient(135deg,rgba(176,77,255,.13),rgba(0,195,255,.07));border-top:1px solid rgba(176,77,255,.2);border-bottom:1px solid rgba(0,195,255,.18)}
-.vision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
-.vision-step{border:1px solid var(--card-border);border-radius:8px;background:rgba(5,5,8,.38);padding:24px}
-.vision-step strong{font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--green)}
-.vision-step p{font-size:15px;color:var(--text2);line-height:1.65;margin-top:10px}
 
 footer{padding:54px 40px;background:var(--bg2);border-top:1px solid var(--card-border)}
 .footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
@@ -147,7 +141,7 @@ footer{padding:54px 40px;background:var(--bg2);border-top:1px solid var(--card-b
   .hamburger{display:flex}
   .hero{align-items:center;padding:110px 24px 54px}
   .hero-inner{grid-template-columns:1fr;gap:32px}
-  .pillar-grid,.vision-grid{grid-template-columns:1fr}
+  .pillar-grid{grid-template-columns:1fr}
   .route-grid,.route-main{grid-template-columns:1fr}
 }
 @media(max-width:620px){
@@ -180,7 +174,7 @@ footer{padding:54px 40px;background:var(--bg2);border-top:1px solid var(--card-b
   <a href="index.html" class="nav-logo">LOCABEY</a>
   <ul class="nav-links">
     <li><a href="#offers">Offers</a></li>
-    <li><a href="growth.html">SMM Panel</a></li>
+    <li><a href="growth.html">Social Growth</a></li>
     <li><a href="services.html">Agency</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -191,7 +185,7 @@ footer{padding:54px 40px;background:var(--bg2);border-top:1px solid var(--card-b
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-close" onclick="toggleMenu()" aria-label="Close menu">×</button>
   <a href="#offers" onclick="toggleMenu()">Offers</a>
-  <a href="growth.html" onclick="toggleMenu()">SMM Panel</a>
+  <a href="growth.html" onclick="toggleMenu()">Social Growth</a>
   <a href="services.html" onclick="toggleMenu()">Agency</a>
   <a href="#contact" onclick="toggleMenu()">Contact</a>
 </div>
@@ -202,11 +196,11 @@ footer{padding:54px 40px;background:var(--bg2);border-top:1px solid var(--card-b
     <div class="hero-grid"></div>
     <div class="hero-inner">
       <div>
-        <div class="eyebrow reveal">Two Businesses</div>
+        <div class="eyebrow reveal">Choose Your Service</div>
         <h1 class="reveal">Choose your <span>LocaBey path.</span></h1>
-        <p class="hero-copy reveal">One side is the SMM boost panel for followers, likes, views and comments. The other side is the real marketing agency for websites, SEO, ads, menus, photography, branding and organic growth.</p>
+        <p class="hero-copy reveal">Need social growth services like followers, likes, views, comments or reposts? Or a full marketing agency for websites, SEO, ads, menus, photography, branding and organic growth?</p>
         <div class="hero-actions reveal">
-          <a href="growth.html" class="btn-primary">Open SMM Panel</a>
+          <a href="growth.html" class="btn-primary">Open Social Growth</a>
           <a href="services.html" class="btn-secondary">Open Agency</a>
         </div>
       </div>
@@ -214,8 +208,8 @@ footer{padding:54px 40px;background:var(--bg2);border-top:1px solid var(--card-b
         <a href="growth.html" class="offer-card growth-offer">
           <div class="offer-letter">A</div>
           <div class="offer-copy">
-            <h2>SMM Boost Panel</h2>
-            <p>Followers, likes, views, comments, saves and platform boost orders with a direct command flow.</p>
+            <h2>Social Growth</h2>
+            <p>Followers, likes, views, comments, saves, reposts and platform growth services with a direct command flow.</p>
           </div>
           <div class="offer-arrow">→</div>
         </a>
@@ -233,27 +227,27 @@ footer{padding:54px 40px;background:var(--bg2);border-top:1px solid var(--card-b
 
   <section class="section pillars" id="pillars">
     <div class="section-inner">
-      <div class="section-kicker reveal">Business Split</div>
-      <h2 class="section-title reveal">A / B. Separate the boost panel from the real agency.</h2>
-      <p class="section-copy reveal">This avoids confusing quick social boost orders with long-term marketing work. Each business has its own page, copy and conversion flow.</p>
+      <div class="section-kicker reveal">Services</div>
+      <h2 class="section-title reveal">Two ways to grow with LocaBey.</h2>
+      <p class="section-copy reveal">Choose instant social growth services or a full agency project for your brand, business, restaurant or local company.</p>
 
       <div class="pillar-grid">
         <a href="growth.html" class="pillar-card growth reveal">
-          <div class="pillar-number">Business A</div>
-          <h3>SMM Boost Panel</h3>
-          <div class="pillar-position">Quick social media boost orders.</div>
-          <p>Followers, likes, views, comments, saves, reach and social proof commands across Instagram, TikTok, YouTube, Facebook, X, Spotify, Twitch and Telegram.</p>
-          <div class="pillar-list"><span>Instagram</span><span>TikTok</span><span>Views</span><span>Comments</span></div>
-          <div class="pillar-link">Open SMM Panel →</div>
+          <div class="pillar-number">Service A</div>
+          <h3>Social Growth</h3>
+          <div class="pillar-position">Boost visibility and social proof.</div>
+          <p>Followers, likes, views, comments, saves, reposts, reach and engagement services across Instagram, TikTok, YouTube, Facebook, X, Spotify, Twitch and Telegram.</p>
+          <div class="pillar-list"><span>Followers</span><span>Likes</span><span>Views</span><span>Reposts</span></div>
+          <div class="pillar-link">Open Social Growth →</div>
         </a>
 
         <a href="services.html" class="pillar-card infrastructure reveal">
-          <div class="pillar-number">Business B</div>
+          <div class="pillar-number">Service B</div>
           <h3>Marketing Agency</h3>
           <div class="pillar-position">Build real brand and customer acquisition systems.</div>
           <p>Websites, smart menus, SEO, real organic growth, Meta Ads, Google Ads, TikTok Ads, photography, branding, content production and hospitality systems.</p>
           <div class="pillar-list"><span>Websites</span><span>SEO</span><span>Ads</span><span>Content</span></div>
-          <div class="pillar-link">Open Agency Website →</div>
+          <div class="pillar-link">Open Marketing Agency →</div>
         </a>
       </div>
     </div>
@@ -261,40 +255,29 @@ footer{padding:54px 40px;background:var(--bg2);border-top:1px solid var(--card-b
 
   <section class="section routes">
     <div class="section-inner">
-      <div class="section-kicker reveal">Navigation</div>
-      <h2 class="section-title reveal">Fast paths for every visitor.</h2>
-      <p class="section-copy reveal">This keeps the homepage light while the deeper pages hold the detailed catalogues, order flow and pricing guides.</p>
+      <div class="section-kicker reveal">Quick Access</div>
+      <h2 class="section-title reveal">Go straight to what you need.</h2>
+      <p class="section-copy reveal">Pick a direct path for social growth orders, agency services, hospitality systems or performance marketing.</p>
       <div class="route-grid">
         <div class="route-main reveal">
-          <a href="growth.html" class="route-link"><strong>SMM Boost Panel</strong><span>Configure platform, service, quantity and send the order request.</span></a>
-          <a href="services.html" class="route-link"><strong>Marketing Agency</strong><span>Browse websites, SEO, ads, content, branding and hospitality systems.</span></a>
-          <a href="services.html#hospitality" class="route-link"><strong>Hospitality Systems</strong><span>Restaurant menus, QR ordering, bookings and local growth systems.</span></a>
-          <a href="services.html#ads-visibility" class="route-link"><strong>Ads & Visibility</strong><span>Meta Ads, Google Ads, TikTok Ads, SEO and influencer campaigns.</span></a>
+          <a href="growth.html" class="route-link"><strong>Order Social Growth</strong><span>Choose platform, service, quantity and send your request.</span></a>
+          <a href="services.html#digital-infrastructure" class="route-link"><strong>Build a Website</strong><span>Premium websites, smart menus, booking flows and digital systems.</span></a>
+          <a href="services.html#branding-content" class="route-link"><strong>Create Content</strong><span>Photography, reels, video editing, brand assets and social visuals.</span></a>
+          <a href="services.html#ads-visibility" class="route-link"><strong>Run Ads & SEO</strong><span>Meta Ads, Google Ads, TikTok Ads, SEO and campaign optimization.</span></a>
         </div>
         <aside class="route-side reveal" id="contact">
-          <h3>Ready to build?</h3>
-          <p>Tell us if you need the SMM boost panel or the agency. We will send you to the right flow and quote.</p>
+          <h3>Contact LocaBey</h3>
+          <p>Send your profile, business page, website idea or campaign goal. We will answer with the right next step.</p>
           <div class="contact-row">
-            <a href="#" class="contact-chip" onclick="openWhatsApp();return false">WhatsApp</a>
-            <a href="https://instagram.com/locabey" target="_blank" class="contact-chip">Instagram</a>
-            <a href="mailto:BilalJm@locabey.fr" class="contact-chip">Email</a>
+            <a href="#" class="contact-chip" onclick="openWhatsApp();return false" aria-label="WhatsApp">💬</a>
+            <a href="https://instagram.com/locabey" target="_blank" class="contact-chip" aria-label="Instagram">📸</a>
+            <a href="mailto:BilalJm@locabey.fr" class="contact-chip" aria-label="Email">✉</a>
           </div>
         </aside>
       </div>
     </div>
   </section>
 
-  <section class="section vision">
-    <div class="section-inner">
-      <div class="section-kicker reveal">Long Term Vision</div>
-      <h2 class="section-title reveal">Two clear brands under one LocaBey ecosystem.</h2>
-      <div class="vision-grid">
-        <div class="vision-step reveal"><strong>SMM Panel</strong><p>Fast, simple orders for social boost services with clear pricing and platform choices.</p></div>
-        <div class="vision-step reveal"><strong>Agency</strong><p>Premium marketing work for businesses that need real acquisition, content and systems.</p></div>
-        <div class="vision-step reveal"><strong>Growth</strong><p>Keep both offers separate so visitors understand exactly what they are buying.</p></div>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
@@ -304,8 +287,8 @@ footer{padding:54px 40px;background:var(--bg2);border-top:1px solid var(--card-b
       <p style="font-size:13px;color:var(--text3);margin-top:8px">© 2026 LocaBey Digital. Built in Paris.</p>
     </div>
     <div class="footer-links">
-      <a href="growth.html">SMM Panel</a>
-      <a href="services.html">Agency</a>
+      <a href="growth.html">Social Growth</a>
+      <a href="services.html">Marketing Agency</a>
       <a href="mailto:BilalJm@locabey.fr">BilalJm@locabey.fr</a>
       <a href="https://www.locabey.fr" target="_blank">www.locabey.fr</a>
     </div>
