@@ -105,13 +105,20 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
 
 /* PRICING TABLE */
 .pricing-section{max-width:960px;margin:60px auto;padding:0 40px}
-.pricing-table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--card-border);border-radius:12px;overflow:hidden}
+.pricing-table-wrap{overflow-x:auto;border:1px solid var(--card-border);border-radius:12px;background:var(--card)}
+.pricing-table{width:100%;border-collapse:collapse;background:var(--card);border:0}
 .pricing-table th{padding:14px 20px;text-align:left;font-family:'Orbitron',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text3);background:rgba(255,255,255,0.02);border-bottom:1px solid var(--card-border)}
 .pricing-table td{padding:14px 20px;font-size:14px;color:var(--text2);border-bottom:1px solid var(--card-border)}
 .pricing-table tr:last-child td{border-bottom:none}
 .pricing-table tr:hover td{background:rgba(176,77,255,0.03);color:var(--text)}
 .price-val{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;color:var(--green)}
 .qty-label{font-weight:700;color:var(--text)}
+.pricing-cards{display:none}
+.pricing-card{background:var(--card);border:1px solid var(--card-border);border-radius:10px;padding:16px;margin-bottom:12px}
+.pricing-card-qty{font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;color:var(--text);margin-bottom:12px}
+.pricing-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+.pricing-card-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.pricing-card-price{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;color:var(--green)}
 
 /* HOW IT WORKS */
 .hiw{max-width:960px;margin:80px auto;padding:0 40px}
@@ -146,6 +153,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
   .qty-grid{grid-template-columns:repeat(3,1fr)}
   .service-selector{grid-template-columns:1fr}
   .builder{padding:0 20px}
+}
+@media(max-width:640px){
+  .pricing-section{padding:0 20px}
+  .pricing-table-wrap{display:none}
+  .pricing-cards{display:block}
 }
 </style>
 </head>
@@ -333,28 +345,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
 <div class="pricing-section">
   <div style="margin-bottom:24px">
     <div style="font-size:11px;color:var(--green);letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:12px"><span style="width:30px;height:1px;background:var(--green);display:block"></span>Price Guide</div>
-    <h2 style="font-family:'Orbitron',sans-serif;font-size:28px;font-weight:900">Indicative Pricing</h2>
-    <p style="font-size:14px;color:var(--text3);margin-top:8px;font-weight:300">Final prices confirmed on WhatsApp. Volume discounts available.</p>
+    <h2 id="pricingTitle" style="font-family:'Orbitron',sans-serif;font-size:28px;font-weight:900">Instagram Indicative Pricing</h2>
+    <p id="pricingCopy" style="font-size:14px;color:var(--text3);margin-top:8px;font-weight:300">Select a platform above to switch this guide. Final prices confirmed on WhatsApp.</p>
   </div>
-  <table class="pricing-table">
-    <thead>
-      <tr>
-        <th>Quantity</th>
-        <th>Followers</th>
-        <th>Likes</th>
-        <th>Views</th>
-        <th>Comments</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td class="qty-label">100</td><td class="price-val">2€</td><td class="price-val">1€</td><td class="price-val">0.50€</td><td class="price-val">6€</td></tr>
-      <tr><td class="qty-label">500</td><td class="price-val">6€</td><td class="price-val">5€</td><td class="price-val">2.50€</td><td class="price-val">30€</td></tr>
-      <tr><td class="qty-label">1,000</td><td class="price-val">10€</td><td class="price-val">8€</td><td class="price-val">5€</td><td class="price-val">60€</td></tr>
-      <tr><td class="qty-label">5,000</td><td class="price-val">45€</td><td class="price-val">35€</td><td class="price-val">25€</td><td class="price-val">300€</td></tr>
-      <tr><td class="qty-label">10,000</td><td class="price-val">80€</td><td class="price-val">60€</td><td class="price-val">50€</td><td class="price-val">600€</td></tr>
-      <tr><td class="qty-label">Up to 5 million</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td></tr>
-    </tbody>
-  </table>
+  <div class="pricing-table-wrap">
+    <table class="pricing-table" aria-live="polite">
+      <thead id="pricingHead"></thead>
+      <tbody id="pricingBody"></tbody>
+    </table>
+  </div>
+  <div class="pricing-cards" id="pricingCards" aria-live="polite"></div>
   <p style="font-size:12px;color:var(--text3);margin-top:12px;text-align:center">📩 Contact us on WhatsApp for exact pricing and bulk discounts</p>
 </div>
 
@@ -418,6 +418,58 @@ const svcEmojis={
   'Clip Views':'🎥','Channel Members':'👥','Post Views':'📬',Reactions:'⚡'
 };
 
+const quoteRows=[
+  {qty:'100',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+  {qty:'500',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+  {qty:'1,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+  {qty:'5,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+  {qty:'10,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+  {qty:'Up to 5 million',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
+];
+
+const pricingGuides={
+  Instagram:{
+    services:['Followers','Likes','Views','Comments'],
+    rows:[
+      {qty:'100',prices:['2€','1€','0.50€','6€']},
+      {qty:'500',prices:['6€','5€','2.50€','30€']},
+      {qty:'1,000',prices:['10€','8€','5€','60€']},
+      {qty:'5,000',prices:['45€','35€','25€','300€']},
+      {qty:'10,000',prices:['80€','60€','50€','600€']},
+      {qty:'Up to 5 million',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
+    ]
+  },
+  TikTok:{services:['Followers','Likes','Views','Comments'],rows:quoteRows},
+  YouTube:{services:['Subscribers','Views','Likes','Watch Time'],rows:quoteRows},
+  Facebook:{services:['Page Likes','Post Likes','Followers','Shares'],rows:quoteRows},
+  'X / Twitter':{services:['Followers','Likes','Retweets','Impressions'],rows:quoteRows},
+  Spotify:{services:['Streams','Followers','Monthly Listeners','Playlist Adds'],rows:quoteRows},
+  Snapchat:{services:['Followers','Story Views','Subscriptions','Profile Views'],rows:quoteRows},
+  Twitch:{services:['Followers','Channel Views','Live Viewers','Clip Views'],rows:quoteRows},
+  Telegram:{services:['Channel Members','Post Views','Reactions','Comments'],rows:quoteRows}
+};
+
+function getPricingGuide(platform){
+  const platformName=platform||'Instagram';
+  return pricingGuides[platformName]||{
+    services:(services[platformName]||['Followers','Likes','Views','Comments']).slice(0,4),
+    rows:quoteRows
+  };
+}
+
+function renderPricingGuide(platform){
+  const platformName=platform||'Instagram';
+  const guide=getPricingGuide(platformName);
+  document.getElementById('pricingTitle').textContent=platformName+' Indicative Pricing';
+  document.getElementById('pricingCopy').textContent='Showing '+platformName+' services. Final prices confirmed on WhatsApp, with volume discounts available.';
+  document.getElementById('pricingHead').innerHTML='<tr><th>Quantity</th>'+guide.services.map(s=>'<th>'+s+'</th>').join('')+'</tr>';
+  document.getElementById('pricingBody').innerHTML=guide.rows.map(row=>'<tr><td class="qty-label">'+row.qty+'</td>'+row.prices.map(price=>'<td class="price-val">'+price+'</td>').join('')+'</tr>').join('');
+  document.getElementById('pricingCards').innerHTML=guide.rows.map(row=>{
+    const prices=guide.services.map((service,index)=>'<div><div class="pricing-card-label">'+service+'</div><div class="pricing-card-price">'+row.prices[index]+'</div></div>').join('');
+    return '<div class="pricing-card"><div class="pricing-card-qty">'+row.qty+'</div><div class="pricing-card-grid">'+prices+'</div></div>';
+  }).join('');
+}
+
 function selectPlatform(name,emoji,el){
   document.querySelectorAll('.plat-btn').forEach(b=>b.classList.remove('selected'));
   el.classList.add('selected');
@@ -441,6 +493,7 @@ function selectPlatform(name,emoji,el){
     list.appendChild(btn);
   });
   openStep('step2');
+  renderPricingGuide(name);
   updateOrderBtn();
 }
 
@@ -523,6 +576,7 @@ function sendInstagramOrder(){
 }
 
 updateOrderBtn();
+renderPricingGuide('Instagram');
 </script>
 </body>
 </html>
