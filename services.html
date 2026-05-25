@@ -33,7 +33,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
 /* SERVICES SECTIONS */
 .services-wrap{max-width:1200px;margin:0 auto;padding:60px 40px 120px}
 
-.service-section{margin-bottom:80px}
+.service-section{margin-bottom:80px;scroll-margin-top:100px}
 .section-head{display:flex;align-items:center;gap:20px;margin-bottom:36px;padding-bottom:20px;border-bottom:1px solid var(--card-border)}
 .section-icon{width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0}
 .section-info h2{font-family:'Orbitron',sans-serif;font-size:18px;font-weight:900;letter-spacing:1px}
@@ -59,7 +59,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
 .svc-card-cta:hover{border-color:var(--green);color:var(--green)}
 
 /* HOSPITALITY CALLOUT */
-.hospitality-callout{background:linear-gradient(135deg,rgba(176,77,255,0.08),rgba(0,195,255,0.08));border:1px solid rgba(176,77,255,0.2);border-radius:16px;padding:40px;margin-bottom:80px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.hospitality-callout{background:linear-gradient(135deg,rgba(176,77,255,0.08),rgba(0,195,255,0.08));border:1px solid rgba(176,77,255,0.2);border-radius:16px;padding:40px;margin-bottom:80px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;scroll-margin-top:100px}
 .hc-left h3{font-family:'Orbitron',sans-serif;font-size:22px;font-weight:900;margin-bottom:12px}
 .hc-left h3 span{background:linear-gradient(90deg,var(--purple),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hc-left p{font-size:14px;color:var(--text2);line-height:1.8;font-weight:300;max-width:480px}
@@ -130,7 +130,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
   </div>
 
   <!-- WEB -->
-  <div class="service-section reveal" data-cat="web">
+  <div class="service-section reveal" id="digital-infrastructure" data-cat="web">
     <div class="section-head">
       <div class="section-icon" style="background:rgba(176,77,255,0.1)">🌐</div>
       <div class="section-info">
@@ -185,7 +185,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
   </div>
 
   <!-- SOCIAL -->
-  <div class="service-section reveal" data-cat="social">
+  <div class="service-section reveal" id="growth-visibility" data-cat="social">
     <div class="section-head">
       <div class="section-icon" style="background:rgba(170,255,0,0.1)">📈</div>
       <div class="section-info">
@@ -240,7 +240,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
   </div>
 
   <!-- CONTENT -->
-  <div class="service-section reveal" data-cat="content">
+  <div class="service-section reveal" id="branding-content" data-cat="content">
     <div class="section-head">
       <div class="section-icon" style="background:rgba(255,140,0,0.1)">🎬</div>
       <div class="section-info">
@@ -295,7 +295,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
   </div>
 
   <!-- BRANDING -->
-  <div class="service-section reveal" data-cat="brand">
+  <div class="service-section reveal" id="brand-identity" data-cat="brand">
     <div class="section-head">
       <div class="section-icon" style="background:rgba(255,45,126,0.1)">💎</div>
       <div class="section-info">
@@ -350,7 +350,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
   </div>
 
   <!-- ADS & SEO -->
-  <div class="service-section reveal" data-cat="ads">
+  <div class="service-section reveal" id="ads-visibility" data-cat="ads">
     <div class="section-head">
       <div class="section-icon" style="background:rgba(0,195,255,0.1)">🎯</div>
       <div class="section-info">
