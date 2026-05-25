@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Growth — LocaBey Digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--purple:#b04dff;--green:#aaff00;--orange:#ff8c00;--blue:#00c3ff;--pink:#ff2d7e;--bg:#050508;--bg2:#0a0a12;--bg3:#0f0f1a;--card:rgba(255,255,255,0.03);--card-border:rgba(255,255,255,0.07);--text:#ffffff;--text2:rgba(255,255,255,0.65);--text3:rgba(255,255,255,0.35)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Rajdhani',sans-serif;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:linear-gradient(var(--purple),var(--blue));border-radius:2px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);background:rgba(5,5,8,0.9);border-bottom:1px solid var(--card-border)}
+.nav-logo{font-family:'Orbitron',sans-serif;font-size:20px;font-weight:900;background:linear-gradient(90deg,var(--purple),var(--green),var(--orange),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;text-decoration:none}
+.nav-back{color:var(--text2);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:.2s}
+.nav-back:hover{color:var(--green)}
+
+/* HERO */
+.page-hero{padding:140px 40px 80px;text-align:center;position:relative;overflow:hidden}
+.hero-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(176,77,255,0.12) 0%,transparent 70%);pointer-events:none}
+.page-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(170,255,0,0.08);border:1px solid rgba(170,255,0,0.2);color:var(--green);padding:6px 16px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
+.page-title{font-family:'Orbitron',sans-serif;font-size:clamp(36px,6vw,80px);font-weight:900;line-height:1;background:linear-gradient(90deg,var(--purple),var(--green),var(--orange),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px}
+.page-sub{font-size:17px;color:var(--text2);font-weight:300;max-width:540px;margin:0 auto;line-height:1.7}
+
+/* TRUST BADGES */
+.trust-row{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;padding:40px;border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border);background:var(--bg2)}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text2);font-weight:600}
+.trust-icon{font-size:20px}
+
+/* ORDER BUILDER */
+.builder{max-width:960px;margin:80px auto;padding:0 40px}
+.builder-grid{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start}
+
+/* LEFT — CONFIGURATOR */
+.configurator{display:flex;flex-direction:column;gap:24px}
+.step-card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;overflow:hidden;transition:.3s}
+.step-card.active{border-color:rgba(176,77,255,0.4)}
+.step-header{padding:20px 24px;display:flex;align-items:center;gap:14px;cursor:pointer}
+.step-num{width:32px;height:32px;border-radius:50%;background:rgba(176,77,255,0.1);border:1px solid rgba(176,77,255,0.3);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;color:var(--purple);flex-shrink:0}
+.step-num.done{background:rgba(170,255,0,0.1);border-color:rgba(170,255,0,0.3);color:var(--green)}
+.step-title{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px}
+.step-selection{margin-left:auto;font-size:12px;color:var(--text3);background:rgba(255,255,255,0.04);padding:4px 10px;border-radius:6px;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.step-body{padding:0 24px 24px;display:none}
+.step-card.active .step-body{display:block}
+
+/* PLATFORM GRID */
+.platform-selector{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
+.plat-btn{background:rgba(255,255,255,0.02);border:1px solid var(--card-border);border-radius:10px;padding:14px 10px;text-align:center;cursor:pointer;transition:.2s;display:flex;flex-direction:column;align-items:center;gap:8px}
+.plat-btn:hover{border-color:rgba(176,77,255,0.3);background:rgba(176,77,255,0.05)}
+.plat-btn.selected{border-color:var(--purple);background:rgba(176,77,255,0.1)}
+.plat-btn.selected .plat-name{color:var(--purple)}
+.plat-emoji{font-size:24px}
+.plat-name{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text2)}
+
+/* SERVICE TYPE */
+.service-selector{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:4px}
+.svc-btn{background:rgba(255,255,255,0.02);border:1px solid var(--card-border);border-radius:10px;padding:14px 16px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:12px}
+.svc-btn:hover{border-color:rgba(176,77,255,0.3)}
+.svc-btn.selected{border-color:var(--purple);background:rgba(176,77,255,0.08)}
+.svc-emoji{font-size:20px;flex-shrink:0}
+.svc-label{font-size:13px;font-weight:600;color:var(--text2)}
+.svc-btn.selected .svc-label{color:var(--text)}
+
+/* QUANTITY */
+.qty-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:4px}
+.qty-btn{background:rgba(255,255,255,0.02);border:1px solid var(--card-border);border-radius:8px;padding:12px 8px;text-align:center;cursor:pointer;transition:.2s;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;color:var(--text2)}
+.qty-btn:hover{border-color:rgba(176,77,255,0.3);color:var(--purple)}
+.qty-btn.selected{border-color:var(--green);color:var(--green);background:rgba(170,255,0,0.06)}
+.qty-custom{margin-top:12px;display:flex;gap:10px;align-items:center}
+.qty-custom input{flex:1;background:rgba(255,255,255,0.03);border:1px solid var(--card-border);border-radius:8px;padding:12px 14px;color:var(--text);font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:600;outline:none;transition:.2s}
+.qty-custom input:focus{border-color:rgba(176,77,255,0.4)}
+.qty-custom input::placeholder{color:var(--text3)}
+.qty-custom label{font-size:12px;color:var(--text3);letter-spacing:1px;white-space:nowrap}
+
+/* URL INPUT */
+.url-input-wrap{margin-top:4px}
+.url-input-wrap input{width:100%;background:rgba(255,255,255,0.03);border:1px solid var(--card-border);border-radius:8px;padding:14px 16px;color:var(--text);font-family:'Rajdhani',sans-serif;font-size:15px;outline:none;transition:.2s}
+.url-input-wrap input:focus{border-color:rgba(176,77,255,0.4)}
+.url-input-wrap input::placeholder{color:var(--text3)}
+.url-hint{font-size:12px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:6px}
+
+/* RIGHT — SUMMARY */
+.order-summary{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:28px;position:sticky;top:100px}
+.summary-title{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;color:var(--text2)}
+.summary-rows{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.summary-row{display:flex;justify-content:space-between;align-items:center;font-size:14px}
+.summary-row .label{color:var(--text3)}
+.summary-row .value{font-weight:600;color:var(--text)}
+.summary-divider{height:1px;background:var(--card-border);margin:4px 0}
+.summary-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.summary-total .label{font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:1px;color:var(--text2)}
+.summary-total .price{font-family:'Orbitron',sans-serif;font-size:28px;font-weight:900;background:linear-gradient(135deg,var(--purple),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.order-btn{display:block;width:100%;padding:16px;background:linear-gradient(135deg,#25d366,#128c7e);border:none;color:#fff;border-radius:10px;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.3s;margin-bottom:12px}
+.order-btn:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(37,211,102,0.4)}
+.order-btn-ig{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)}
+.order-btn-ig:hover{box-shadow:0 10px 40px rgba(253,29,29,0.35)}
+.order-disclaimer{font-size:11px;color:var(--text3);text-align:center;line-height:1.6}
+.summary-features{background:rgba(170,255,0,0.04);border:1px solid rgba(170,255,0,0.1);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.feature-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text2)}
+.feature-row::before{content:'✓';color:var(--green);font-size:11px;flex-shrink:0}
+
+/* PRICING TABLE */
+.pricing-section{max-width:960px;margin:60px auto;padding:0 40px}
+.pricing-table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--card-border);border-radius:12px;overflow:hidden}
+.pricing-table th{padding:14px 20px;text-align:left;font-family:'Orbitron',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text3);background:rgba(255,255,255,0.02);border-bottom:1px solid var(--card-border)}
+.pricing-table td{padding:14px 20px;font-size:14px;color:var(--text2);border-bottom:1px solid var(--card-border)}
+.pricing-table tr:last-child td{border-bottom:none}
+.pricing-table tr:hover td{background:rgba(176,77,255,0.03);color:var(--text)}
+.price-val{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;color:var(--green)}
+.qty-label{font-weight:700;color:var(--text)}
+
+/* HOW IT WORKS */
+.hiw{max-width:960px;margin:80px auto;padding:0 40px}
+.hiw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
+.hiw-step{text-align:center}
+.hiw-icon{font-size:36px;margin-bottom:14px}
+.hiw-num{font-family:'Orbitron',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--text3);text-transform:uppercase;margin-bottom:8px}
+.hiw-title{font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;color:var(--text)}
+.hiw-desc{font-size:13px;color:var(--text3);line-height:1.7;font-weight:300}
+
+/* FOOTER MINI */
+.mini-footer{text-align:center;padding:40px;border-top:1px solid var(--card-border);font-size:13px;color:var(--text3)}
+.mini-footer a{color:var(--text2);text-decoration:none}
+.mini-footer a:hover{color:var(--green)}
+.float-wa{position:fixed;bottom:32px;right:32px;z-index:999;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 8px 32px rgba(37,211,102,0.5);animation:waPulse 2.5s ease-in-out infinite}
+@keyframes waPulse{0%,100%{box-shadow:0 8px 32px rgba(37,211,102,0.5)}50%{box-shadow:0 8px 60px rgba(37,211,102,0.8)}}
+
+/* ANIMATE */
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.anim{animation:fadeUp .6s ease both}
+.anim-1{animation-delay:.1s}.anim-2{animation-delay:.2s}.anim-3{animation-delay:.3s}.anim-4{animation-delay:.4s}
+
+@media(max-width:800px){
+  .builder-grid{grid-template-columns:1fr}
+  .order-summary{position:static}
+  .platform-selector{grid-template-columns:repeat(3,1fr)}
+  .hiw-grid{grid-template-columns:1fr 1fr}
+  nav{padding:14px 20px}
+}
+@media(max-width:500px){
+  .platform-selector{grid-template-columns:repeat(2,1fr)}
+  .qty-grid{grid-template-columns:repeat(3,1fr)}
+  .service-selector{grid-template-columns:1fr}
+  .builder{padding:0 20px}
+}
+</style>
+</head>
+<body>
+<a href="#" class="float-wa" onclick="sendWhatsAppOrder();return false">💬</a>
+<nav>
+  <a href="index.html" class="nav-logo">LOCABEY</a>
+  <a href="index.html" class="nav-back">← Back to Home</a>
+</nav>
+
+<div class="page-hero">
+  <div class="hero-glow"></div>
+  <div class="page-badge anim">⚡ Instant Social Growth</div>
+  <h1 class="page-title anim anim-1">Grow Any Platform</h1>
+  <p class="page-sub anim anim-2">Select your platform, choose your service and quantity. We deliver in 24h. No password required — ever.</p>
+</div>
+
+<div class="trust-row">
+  <div class="trust-item anim anim-1"><span class="trust-icon">🔐</span> No Password Needed</div>
+  <div class="trust-item anim anim-2"><span class="trust-icon">⚡</span> Delivery in 24h</div>
+  <div class="trust-item anim anim-3"><span class="trust-icon">💳</span> Secure Payment</div>
+  <div class="trust-item anim anim-4"><span class="trust-icon">🛡️</span> 7/7 Support</div>
+  <div class="trust-item anim"><span class="trust-icon">🎯</span> All Quantities</div>
+</div>
+
+<!-- ORDER BUILDER -->
+<div class="builder">
+  <div class="builder-grid">
+    <!-- CONFIGURATOR -->
+    <div class="configurator">
+
+      <!-- STEP 1: PLATFORM -->
+      <div class="step-card active" id="step1">
+        <div class="step-header" onclick="toggleStep('step1')">
+          <div class="step-num" id="num1">1</div>
+          <div class="step-title">Choose Platform</div>
+          <div class="step-selection" id="sel1">Not selected</div>
+        </div>
+        <div class="step-body">
+          <div class="platform-selector">
+            <div class="plat-btn" onclick="selectPlatform('Instagram','📸',this)">
+              <div class="plat-emoji">📸</div>
+              <div class="plat-name">Instagram</div>
+            </div>
+            <div class="plat-btn" onclick="selectPlatform('TikTok','🎵',this)">
+              <div class="plat-emoji">🎵</div>
+              <div class="plat-name">TikTok</div>
+            </div>
+            <div class="plat-btn" onclick="selectPlatform('YouTube','▶️',this)">
+              <div class="plat-emoji">▶️</div>
+              <div class="plat-name">YouTube</div>
+            </div>
+            <div class="plat-btn" onclick="selectPlatform('Facebook','📘',this)">
+              <div class="plat-emoji">📘</div>
+              <div class="plat-name">Facebook</div>
+            </div>
+            <div class="plat-btn" onclick="selectPlatform('X / Twitter','𝕏',this)">
+              <div class="plat-emoji" style="font-family:serif;font-weight:700;font-size:22px">𝕏</div>
+              <div class="plat-name">Twitter</div>
+            </div>
+            <div class="plat-btn" onclick="selectPlatform('Spotify','🎧',this)">
+              <div class="plat-emoji">🎧</div>
+              <div class="plat-name">Spotify</div>
+            </div>
+            <div class="plat-btn" onclick="selectPlatform('Snapchat','👻',this)">
+              <div class="plat-emoji">👻</div>
+              <div class="plat-name">Snapchat</div>
+            </div>
+            <div class="plat-btn" onclick="selectPlatform('Twitch','🟣',this)">
+              <div class="plat-emoji">🟣</div>
+              <div class="plat-name">Twitch</div>
+            </div>
+            <div class="plat-btn" onclick="selectPlatform('Telegram','✈️',this)">
+              <div class="plat-emoji">✈️</div>
+              <div class="plat-name">Telegram</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: SERVICE TYPE -->
+      <div class="step-card" id="step2">
+        <div class="step-header" onclick="toggleStep('step2')">
+          <div class="step-num" id="num2">2</div>
+          <div class="step-title">Choose Service</div>
+          <div class="step-selection" id="sel2">Not selected</div>
+        </div>
+        <div class="step-body">
+          <div class="service-selector" id="serviceList">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3: QUANTITY -->
+      <div class="step-card" id="step3">
+        <div class="step-header" onclick="toggleStep('step3')">
+          <div class="step-num" id="num3">3</div>
+          <div class="step-title">Choose Quantity</div>
+          <div class="step-selection" id="sel3">Not selected</div>
+        </div>
+        <div class="step-body">
+          <div class="qty-grid">
+            <div class="qty-btn" onclick="selectQty('100',this)">100</div>
+            <div class="qty-btn" onclick="selectQty('500',this)">500</div>
+            <div class="qty-btn" onclick="selectQty('1,000',this)">1K</div>
+            <div class="qty-btn" onclick="selectQty('2,000',this)">2K</div>
+            <div class="qty-btn" onclick="selectQty('5,000',this)">5K</div>
+            <div class="qty-btn" onclick="selectQty('10,000',this)">10K</div>
+            <div class="qty-btn" onclick="selectQty('25,000',this)">25K</div>
+            <div class="qty-btn" onclick="selectQty('50,000',this)">50K</div>
+          </div>
+          <div class="qty-custom">
+            <label>Custom:</label>
+            <input type="number" id="customQty" placeholder="Enter custom amount..." min="10" onchange="setCustomQty(this.value)">
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4: URL -->
+      <div class="step-card" id="step4">
+        <div class="step-header" onclick="toggleStep('step4')">
+          <div class="step-num" id="num4">4</div>
+          <div class="step-title">Your Profile URL</div>
+          <div class="step-selection" id="sel4">Not entered</div>
+        </div>
+        <div class="step-body">
+          <div class="url-input-wrap">
+            <input type="url" id="profileUrl" placeholder="https://instagram.com/yourusername" oninput="updateUrl(this.value)">
+          </div>
+          <div class="url-hint">🔐 No password needed — only your public profile URL</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ORDER SUMMARY -->
+    <div class="order-summary">
+      <div class="summary-title">Your Order</div>
+      
+      <div class="summary-rows">
+        <div class="summary-row">
+          <span class="label">Platform</span>
+          <span class="value" id="sum-platform">—</span>
+        </div>
+        <div class="summary-row">
+          <span class="label">Service</span>
+          <span class="value" id="sum-service">—</span>
+        </div>
+        <div class="summary-row">
+          <span class="label">Quantity</span>
+          <span class="value" id="sum-qty">—</span>
+        </div>
+        <div class="summary-row">
+          <span class="label">Delivery</span>
+          <span class="value" style="color:var(--green)">Within 24h</span>
+        </div>
+        <div class="summary-divider"></div>
+        <div class="summary-row">
+          <span class="label">Price</span>
+          <span class="value" style="color:var(--text3);font-size:12px">On request via WhatsApp</span>
+        </div>
+      </div>
+
+      <div class="summary-features">
+        <div class="feature-row">No password required</div>
+        <div class="feature-row">Secure &amp; confidential</div>
+        <div class="feature-row">24h delivery guaranteed</div>
+        <div class="feature-row">7/7 after-service support</div>
+      </div>
+      
+      <button class="order-btn" id="waOrderBtn" onclick="sendWhatsAppOrder()">
+        💬 Order via WhatsApp
+      </button>
+      <button class="order-btn order-btn-ig" onclick="sendInstagramOrder()">
+        📸 Order via Instagram DM
+      </button>
+      
+      <p class="order-disclaimer">Orders processed manually by our team. Payment details shared on WhatsApp. 100% secure.</p>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING REFERENCE -->
+<div class="pricing-section">
+  <div style="margin-bottom:24px">
+    <div style="font-size:11px;color:var(--green);letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:12px"><span style="width:30px;height:1px;background:var(--green);display:block"></span>Price Guide</div>
+    <h2 style="font-family:'Orbitron',sans-serif;font-size:28px;font-weight:900">Indicative Pricing</h2>
+    <p style="font-size:14px;color:var(--text3);margin-top:8px;font-weight:300">Final prices confirmed on WhatsApp. Volume discounts available.</p>
+  </div>
+  <table class="pricing-table">
+    <thead>
+      <tr>
+        <th>Quantity</th>
+        <th>Followers</th>
+        <th>Likes</th>
+        <th>Views</th>
+        <th>Comments</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="qty-label">100</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td></tr>
+      <tr><td class="qty-label">500</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td></tr>
+      <tr><td class="qty-label">1,000</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td></tr>
+      <tr><td class="qty-label">5,000</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td><td class="price-val">Sur devis</td></tr>
+      <tr><td class="qty-label">10,000+</td><td class="price-val">Bulk deal</td><td class="price-val">Bulk deal</td><td class="price-val">Bulk deal</td><td class="price-val">Bulk deal</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:12px;color:var(--text3);margin-top:12px;text-align:center">📩 Contact us on WhatsApp for exact pricing and bulk discounts</p>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="hiw">
+  <div style="text-align:center;margin-bottom:0">
+    <div style="font-size:11px;color:var(--green);letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:12px;justify-content:center;display:flex;align-items:center;gap:12px"><span style="width:30px;height:1px;background:var(--green);display:block"></span>Process</div>
+    <h2 style="font-family:'Orbitron',sans-serif;font-size:32px;font-weight:900">How It Works</h2>
+  </div>
+  <div class="hiw-grid">
+    <div class="hiw-step">
+      <div class="hiw-icon">📋</div>
+      <div class="hiw-num">Step 01</div>
+      <div class="hiw-title">Configure</div>
+      <div class="hiw-desc">Select platform, service and quantity using the order builder above.</div>
+    </div>
+    <div class="hiw-step">
+      <div class="hiw-icon">💬</div>
+      <div class="hiw-num">Step 02</div>
+      <div class="hiw-title">Contact Us</div>
+      <div class="hiw-desc">We receive your order via WhatsApp or Instagram DM with all details pre-filled.</div>
+    </div>
+    <div class="hiw-step">
+      <div class="hiw-icon">💳</div>
+      <div class="hiw-num">Step 03</div>
+      <div class="hiw-title">Payment</div>
+      <div class="hiw-desc">Secure payment confirmation sent. We accept all major payment methods.</div>
+    </div>
+    <div class="hiw-step">
+      <div class="hiw-icon">⚡</div>
+      <div class="hiw-num">Step 04</div>
+      <div class="hiw-title">Delivery</div>
+      <div class="hiw-desc">Growth starts within hours. Full delivery in 24h. We confirm when done.</div>
+    </div>
+  </div>
+</div>
+
+<div class="mini-footer">
+  <p>© 2025 LocaBey Digital · <a href="index.html">Back to Homepage</a> · <a href="mailto:BilalJm@locabey.fr">BilalJm@locabey.fr</a></p>
+</div>
+
+<script>
+const state={platform:'',service:'',qty:'',url:''};
+
+const services={
+  Instagram:['Followers','Likes','Views','Comments','Saves','Story Views','Reels Views','Live Viewers'],
+  TikTok:['Followers','Likes','Views','Comments','Shares','Profile Views'],
+  YouTube:['Subscribers','Views','Likes','Comments','Watch Time (hrs)'],
+  Facebook:['Page Likes','Post Likes','Followers','Shares','Comments'],
+  'X / Twitter':['Followers','Likes','Retweets','Impressions','Poll Votes'],
+  Spotify:['Streams','Followers','Monthly Listeners','Playlist Adds'],
+  Snapchat:['Followers','Story Views','Subscriptions'],
+  Twitch:['Followers','Channel Views','Live Viewers','Clip Views'],
+  Telegram:['Channel Members','Post Views','Reactions']
+};
+
+const svcEmojis={
+  Followers:'👥',Likes:'❤️',Views:'👁️',Comments:'💬',Saves:'🔖','Story Views':'📖','Reels Views':'🎬','Live Viewers':'📡',
+  Subscribers:'🔔','Watch Time (hrs)':'⏱️','Page Likes':'👍','Shares':'🔄','Impressions':'📊','Poll Votes':'🗳️',
+  Retweets:'🔁','Monthly Listeners':'🎵','Playlist Adds':'➕',Streams:'▶️',Subscriptions:'⭐','Channel Views':'📺',
+  'Clip Views':'🎥','Channel Members':'👥','Post Views':'📬',Reactions:'⚡'
+};
+
+function selectPlatform(name,emoji,el){
+  document.querySelectorAll('.plat-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  state.platform=name;
+  document.getElementById('sel1').textContent=emoji+' '+name;
+  document.getElementById('num1').textContent='✓';
+  document.getElementById('num1').classList.add('done');
+  document.getElementById('sum-platform').textContent=name;
+  // Reset service
+  state.service='';
+  document.getElementById('sel2').textContent='Not selected';
+  document.getElementById('sum-service').textContent='—';
+  // Build service list
+  const list=document.getElementById('serviceList');
+  list.innerHTML='';
+  (services[name]||[]).forEach(s=>{
+    const btn=document.createElement('div');
+    btn.className='svc-btn';
+    btn.innerHTML=`<span class="svc-emoji">${svcEmojis[s]||'✨'}</span><span class="svc-label">${s}</span>`;
+    btn.onclick=function(){selectService(s,this)};
+    list.appendChild(btn);
+  });
+  openStep('step2');
+  updateOrderBtn();
+}
+
+function selectService(name,el){
+  document.querySelectorAll('.svc-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  state.service=name;
+  document.getElementById('sel2').textContent=name;
+  document.getElementById('num2').textContent='✓';
+  document.getElementById('num2').classList.add('done');
+  document.getElementById('sum-service').textContent=name;
+  openStep('step3');
+  updateOrderBtn();
+}
+
+function selectQty(qty,el){
+  document.querySelectorAll('.qty-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  state.qty=qty;
+  document.getElementById('sel3').textContent=qty;
+  document.getElementById('num3').textContent='✓';
+  document.getElementById('num3').classList.add('done');
+  document.getElementById('sum-qty').textContent=qty;
+  document.getElementById('customQty').value='';
+  openStep('step4');
+  updateOrderBtn();
+}
+
+function setCustomQty(v){
+  if(!v)return;
+  document.querySelectorAll('.qty-btn').forEach(b=>b.classList.remove('selected'));
+  const formatted=parseInt(v).toLocaleString();
+  state.qty=formatted;
+  document.getElementById('sel3').textContent=formatted;
+  document.getElementById('num3').textContent='✓';
+  document.getElementById('num3').classList.add('done');
+  document.getElementById('sum-qty').textContent=formatted;
+  openStep('step4');
+  updateOrderBtn();
+}
+
+function updateUrl(v){
+  state.url=v;
+  document.getElementById('sel4').textContent=v?'URL entered':'Not entered';
+  if(v){document.getElementById('num4').textContent='✓';document.getElementById('num4').classList.add('done');}
+  updateOrderBtn();
+}
+
+function openStep(id){
+  document.querySelectorAll('.step-card').forEach(c=>c.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function toggleStep(id){
+  const el=document.getElementById(id);
+  if(el.classList.contains('active'))el.classList.remove('active');
+  else{document.querySelectorAll('.step-card').forEach(c=>c.classList.remove('active'));el.classList.add('active');}
+}
+
+function updateOrderBtn(){
+  const btn=document.getElementById('waOrderBtn');
+  if(state.platform&&state.service&&state.qty){
+    btn.style.opacity='1';
+  } else {
+    btn.style.opacity='0.6';
+  }
+}
+
+function buildMessage(){
+  return `Bonjour LocaBey! 🚀\n\nJe voudrais commander:\n\n📱 Plateforme: ${state.platform||'?'}\n📊 Service: ${state.service||'?'}\n🎯 Quantité: ${state.qty||'?'}\n🔗 URL: ${state.url||'A fournir'}\n\nMerci!`;
+}
+
+function sendWhatsAppOrder(){
+  const msg=encodeURIComponent(buildMessage());
+  window.open('https://wa.me/33617783572?text='+msg,'_blank');
+}
+
+function sendInstagramOrder(){
+  window.open('https://instagram.com/locabey','_blank');
+}
+
+updateOrderBtn();
+</script>
+</body>
+</html>
