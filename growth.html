@@ -5,279 +5,275 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Growth — LocaBey</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--purple:#b04dff;--green:#aaff00;--orange:#ff8c00;--blue:#00c3ff;--pink:#ff2d7e;--bg:#050508;--bg2:#0a0a12;--bg3:#0f0f1a;--card:rgba(255,255,255,0.03);--card-border:rgba(255,255,255,0.07);--text:#ffffff;--text2:rgba(255,255,255,0.65);--text3:rgba(255,255,255,0.35)}
-*{margin:0;padding:0;box-sizing:border-box}
+:root {
+  --c0:#020204; --c1:#06060c; --c2:#0c0c18;
+  --accent:#a8ff00; --accent2:#00f0ff; --accent3:#ff2d6b; --gold:#ffd166;
+  --text:#f0f0f8; --text2:rgba(240,240,248,0.55); --text3:rgba(240,240,248,0.28);
+  --border:rgba(255,255,255,0.07); --border2:rgba(255,255,255,0.13);
+  --mono:'DM Mono',monospace; --sans:'Space Grotesk',sans-serif; --display:'Syne',sans-serif;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Rajdhani',sans-serif;overflow-x:hidden}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:linear-gradient(var(--purple),var(--blue));border-radius:2px}
+body{background:var(--c0);color:var(--text);font-family:var(--sans);overflow-x:hidden;cursor:none}
+#cursor{position:fixed;z-index:9999;pointer-events:none;width:10px;height:10px;background:var(--accent);border-radius:50%;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s;mix-blend-mode:difference}
+#cursor-ring{position:fixed;z-index:9998;pointer-events:none;width:36px;height:36px;border:1px solid rgba(168,255,0,0.5);border-radius:50%;transform:translate(-50%,-50%);transition:all .12s ease}
+body:has(a:hover) #cursor,body:has(button:hover) #cursor{width:18px;height:18px;background:var(--accent2)}
+body:has(a:hover) #cursor-ring,body:has(button:hover) #cursor-ring{width:50px;height:50px;border-color:var(--accent2)}
+::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--c0)}::-webkit-scrollbar-thumb{background:var(--accent)}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");background-size:200px 200px;pointer-events:none;z-index:1;opacity:0.5}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(20px);background:rgba(5,5,8,0.9);border-bottom:1px solid var(--card-border)}
-.nav-logo{font-family:'Orbitron',sans-serif;font-size:20px;font-weight:900;background:linear-gradient(90deg,var(--purple),var(--green),var(--orange),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:2px;text-decoration:none}
-.nav-back{color:var(--text2);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;display:flex;align-items:center;gap:8px;transition:.2s}
-.nav-back:hover{color:var(--green)}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 48px;height:70px;display:flex;align-items:center;justify-content:space-between;background:rgba(2,2,4,0.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--display);font-size:22px;font-weight:800;letter-spacing:0.08em;text-decoration:none;color:var(--text)}
+.nav-logo::after{content:'.';color:var(--accent);font-size:32px;line-height:0;vertical-align:-4px}
+.nav-back{font-family:var(--mono);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text2);text-decoration:none;transition:color 0.2s;display:flex;align-items:center;gap:8px}
+.nav-back:hover{color:var(--accent)}
 
 /* HERO */
-.page-hero{padding:140px 40px 80px;text-align:center;position:relative;overflow:hidden}
-.hero-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(ellipse,rgba(176,77,255,0.12) 0%,transparent 70%);pointer-events:none}
-.page-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(170,255,0,0.08);border:1px solid rgba(170,255,0,0.2);color:var(--green);padding:6px 16px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
-.page-title{font-family:'Orbitron',sans-serif;font-size:clamp(36px,6vw,80px);font-weight:900;line-height:1;background:linear-gradient(90deg,var(--purple),var(--green),var(--orange),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px}
-.page-sub{font-size:17px;color:var(--text2);font-weight:300;max-width:540px;margin:0 auto;line-height:1.7}
+.page-hero{padding:140px 48px 80px;max-width:1200px;margin:0 auto;position:relative}
+.orb{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;animation:orbFloat 8s ease-in-out infinite}
+.orb-1{width:500px;height:400px;background:rgba(168,255,0,0.05);top:-100px;right:0;animation-delay:0s}
+.orb-2{width:300px;height:300px;background:rgba(0,240,255,0.04);top:50%;left:0;animation-delay:-4s}
+@keyframes orbFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.03)}}
+.page-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(168,255,0,0.08);border:1px solid rgba(168,255,0,0.2);color:var(--accent);padding:6px 16px;border-radius:2px;font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:24px;opacity:0;animation:fadeUp 0.8s 0.1s ease forwards}
+.page-h1{font-family:var(--display);font-size:clamp(42px,6vw,84px);font-weight:800;line-height:0.95;letter-spacing:-0.03em;margin-bottom:24px;opacity:0;animation:fadeUp 0.8s 0.25s ease forwards}
+.page-h1 em{font-style:normal;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-sub{font-size:17px;color:var(--text2);font-weight:300;max-width:540px;line-height:1.7;opacity:0;animation:fadeUp 0.8s 0.4s ease forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-/* TRUST BADGES */
-.trust-row{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;padding:40px;border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border);background:var(--bg2)}
-.trust-item{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text2);font-weight:600}
-.trust-icon{font-size:20px}
+/* TRUST BAR */
+.trust-bar{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--c1);padding:20px 48px;display:flex;gap:40px;justify-content:center;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3)}
+.trust-dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
 
-/* ORDER BUILDER */
-.builder{max-width:960px;margin:80px auto;padding:0 40px}
+/* BUILDER */
+.builder{max-width:1200px;margin:0 auto;padding:80px 48px}
 .builder-grid{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start}
 
-/* LEFT — CONFIGURATOR */
-.configurator{display:flex;flex-direction:column;gap:24px}
-.step-card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;overflow:hidden;transition:.3s}
-.step-card.active{border-color:rgba(176,77,255,0.4)}
-.step-header{padding:20px 24px;display:flex;align-items:center;gap:14px;cursor:pointer}
-.step-num{width:32px;height:32px;border-radius:50%;background:rgba(176,77,255,0.1);border:1px solid rgba(176,77,255,0.3);display:flex;align-items:center;justify-content:center;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;color:var(--purple);flex-shrink:0}
-.step-num.done{background:rgba(170,255,0,0.1);border-color:rgba(170,255,0,0.3);color:var(--green)}
-.step-title{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;letter-spacing:1px}
-.step-selection{margin-left:auto;font-size:12px;color:var(--text3);background:rgba(255,255,255,0.04);padding:4px 10px;border-radius:6px;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* STEP CARDS */
+.step-card{border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:border-color 0.3s;margin-bottom:12px;background:var(--c1)}
+.step-card.active{border-color:rgba(168,255,0,0.25)}
+.step-header{padding:20px 24px;display:flex;align-items:center;gap:14px;cursor:none}
+.step-num{width:30px;height:30px;border-radius:50%;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:11px;color:var(--text3);flex-shrink:0;transition:all 0.3s}
+.step-num.done{border-color:var(--accent);color:var(--accent);background:rgba(168,255,0,0.08)}
+.step-title{font-family:var(--display);font-size:14px;font-weight:700;flex:1}
+.step-sel{font-family:var(--mono);font-size:11px;color:var(--text3);background:rgba(255,255,255,0.03);padding:4px 10px;border-radius:2px;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .step-body{padding:0 24px 24px;display:none}
 .step-card.active .step-body{display:block}
 
 /* PLATFORM GRID */
-.platform-selector{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px}
-.plat-btn{background:rgba(255,255,255,0.02);border:1px solid var(--card-border);border-radius:10px;padding:14px 10px;text-align:center;cursor:pointer;transition:.2s;display:flex;flex-direction:column;align-items:center;gap:8px}
-.plat-btn:hover{border-color:rgba(176,77,255,0.3);background:rgba(176,77,255,0.05)}
-.plat-btn.selected{border-color:var(--purple);background:rgba(176,77,255,0.1)}
-.plat-btn.selected .plat-name{color:var(--purple)}
-.plat-emoji{font-size:24px}
-.plat-name{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text2)}
+.platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.plat-btn{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:8px;padding:14px 8px;text-align:center;cursor:none;transition:all 0.25s;display:flex;flex-direction:column;align-items:center;gap:7px}
+.plat-btn:hover{border-color:var(--border2);background:rgba(255,255,255,0.04)}
+.plat-btn.sel{border-color:var(--accent);background:rgba(168,255,0,0.07)}
+.plat-emoji{font-size:22px}
+.plat-name{font-family:var(--mono);font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text2)}
+.plat-btn.sel .plat-name{color:var(--accent)}
 
-/* SERVICE TYPE */
-.service-selector{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:4px}
-.svc-btn{background:rgba(255,255,255,0.02);border:1px solid var(--card-border);border-radius:10px;padding:14px 16px;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:12px}
-.svc-btn:hover{border-color:rgba(176,77,255,0.3)}
-.svc-btn.selected{border-color:var(--purple);background:rgba(176,77,255,0.08)}
-.svc-emoji{font-size:20px;flex-shrink:0}
-.svc-label{font-size:13px;font-weight:600;color:var(--text2)}
-.svc-btn.selected .svc-label{color:var(--text)}
+/* SERVICE */
+.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}
+.svc-btn{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:8px;padding:12px 16px;cursor:none;transition:all 0.25s;display:flex;align-items:center;gap:10px}
+.svc-btn:hover{border-color:var(--border2)}
+.svc-btn.sel{border-color:var(--accent2);background:rgba(0,240,255,0.06)}
+.svc-emoji{font-size:18px;flex-shrink:0}
+.svc-label{font-size:13px;font-weight:500;color:var(--text2)}
+.svc-btn.sel .svc-label{color:var(--text)}
 
-/* QUANTITY */
-.qty-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:4px}
-.qty-btn{background:rgba(255,255,255,0.02);border:1px solid var(--card-border);border-radius:8px;padding:12px 8px;text-align:center;cursor:pointer;transition:.2s;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;color:var(--text2)}
-.qty-btn:hover{border-color:rgba(176,77,255,0.3);color:var(--purple)}
-.qty-btn.selected{border-color:var(--green);color:var(--green);background:rgba(170,255,0,0.06)}
-.qty-custom{margin-top:12px;display:flex;gap:10px;align-items:center}
-.qty-custom input{flex:1;background:rgba(255,255,255,0.03);border:1px solid var(--card-border);border-radius:8px;padding:12px 14px;color:var(--text);font-family:'Rajdhani',sans-serif;font-size:15px;font-weight:600;outline:none;transition:.2s}
-.qty-custom input:focus{border-color:rgba(176,77,255,0.4)}
+/* QTY */
+.qty-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:8px}
+.qty-btn{background:rgba(255,255,255,0.02);border:1px solid var(--border);border-radius:6px;padding:11px 6px;text-align:center;cursor:none;transition:all 0.25s;font-family:var(--mono);font-size:12px;color:var(--text3)}
+.qty-btn:hover{border-color:var(--border2);color:var(--text)}
+.qty-btn.sel{border-color:var(--accent);color:var(--accent);background:rgba(168,255,0,0.06)}
+.qty-custom{margin-top:12px;display:flex;align-items:center;gap:10px}
+.qty-custom label{font-family:var(--mono);font-size:11px;color:var(--text3);letter-spacing:0.1em;white-space:nowrap}
+.qty-custom input{flex:1;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:6px;padding:11px 14px;color:var(--text);font-family:var(--mono);font-size:13px;outline:none;transition:border-color 0.2s}
+.qty-custom input:focus{border-color:rgba(168,255,0,0.35)}
 .qty-custom input::placeholder{color:var(--text3)}
-.qty-custom label{font-size:12px;color:var(--text3);letter-spacing:1px;white-space:nowrap}
 
-/* URL INPUT */
-.url-input-wrap{margin-top:4px}
-.url-input-wrap input{width:100%;background:rgba(255,255,255,0.03);border:1px solid var(--card-border);border-radius:8px;padding:14px 16px;color:var(--text);font-family:'Rajdhani',sans-serif;font-size:15px;outline:none;transition:.2s}
-.url-input-wrap input:focus{border-color:rgba(176,77,255,0.4)}
-.url-input-wrap input::placeholder{color:var(--text3)}
-.url-hint{font-size:12px;color:var(--text3);margin-top:8px;display:flex;align-items:center;gap:6px}
+/* URL */
+.url-wrap{margin-top:8px}
+.url-wrap input{width:100%;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:6px;padding:13px 16px;color:var(--text);font-family:var(--mono);font-size:13px;outline:none;transition:border-color 0.2s}
+.url-wrap input:focus{border-color:rgba(168,255,0,0.35)}
+.url-wrap input::placeholder{color:var(--text3)}
+.url-hint{font-family:var(--mono);font-size:11px;color:var(--text3);margin-top:8px;letter-spacing:0.05em}
 
-/* RIGHT — SUMMARY */
-.order-summary{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:28px;position:sticky;top:100px}
-.summary-title{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;color:var(--text2)}
-.summary-rows{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
-.summary-row{display:flex;justify-content:space-between;align-items:center;font-size:14px}
-.summary-row .label{color:var(--text3)}
-.summary-row .value{font-weight:600;color:var(--text)}
-.summary-divider{height:1px;background:var(--card-border);margin:4px 0}
-.summary-total{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
-.summary-total .label{font-family:'Orbitron',sans-serif;font-size:12px;letter-spacing:1px;color:var(--text2)}
-.summary-total .price{font-family:'Orbitron',sans-serif;font-size:28px;font-weight:900;background:linear-gradient(135deg,var(--purple),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.order-btn{display:block;width:100%;padding:16px;background:linear-gradient(135deg,#25d366,#128c7e);border:none;color:#fff;border-radius:10px;font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.3s;margin-bottom:12px}
-.order-btn:hover{transform:translateY(-2px);box-shadow:0 10px 40px rgba(37,211,102,0.4)}
-.order-btn-ig{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)}
-.order-btn-ig:hover{box-shadow:0 10px 40px rgba(253,29,29,0.35)}
-.order-disclaimer{font-size:11px;color:var(--text3);text-align:center;line-height:1.6}
-.summary-features{background:rgba(170,255,0,0.04);border:1px solid rgba(170,255,0,0.1);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
-.feature-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text2)}
-.feature-row::before{content:'✓';color:var(--green);font-size:11px;flex-shrink:0}
+/* SUMMARY */
+.order-summary{background:var(--c1);border:1px solid var(--border);border-radius:12px;padding:28px;position:sticky;top:90px}
+.sum-title{font-family:var(--mono);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--text3);margin-bottom:24px;display:flex;align-items:center;gap:8px}
+.sum-title::before{content:'';width:14px;height:1px;background:var(--text3)}
+.sum-rows{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.sum-row{display:flex;justify-content:space-between;align-items:center;font-size:14px}
+.sum-row .l{color:var(--text3);font-size:12px;font-family:var(--mono);letter-spacing:0.05em}
+.sum-row .v{font-weight:600;color:var(--text)}
+.sum-div{height:1px;background:var(--border);margin:4px 0}
+.sum-price-wrap{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px}
+.sum-price-label{font-family:var(--mono);font-size:11px;letter-spacing:0.1em;color:var(--text3)}
+.sum-price{font-family:var(--display);font-size:28px;font-weight:800;color:var(--accent)}
+.sum-price.placeholder{font-size:13px;font-family:var(--mono);color:var(--text3);letter-spacing:0.05em;font-weight:400}
+.sum-features{background:rgba(168,255,0,0.04);border:1px solid rgba(168,255,0,0.1);border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.sum-feat{font-size:12px;color:var(--text2);display:flex;align-items:center;gap:8px;font-family:var(--mono);letter-spacing:0.05em}
+.sum-feat::before{content:'✓';color:var(--accent);font-size:11px}
+.order-btn{display:block;width:100%;padding:15px;border:none;border-radius:6px;font-family:var(--mono);font-size:11px;letter-spacing:0.15em;text-transform:uppercase;cursor:none;transition:all 0.3s;margin-bottom:10px;font-weight:500}
+.btn-wa{background:linear-gradient(135deg,#25d366,#128c7e);color:#fff}
+.btn-wa:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(37,211,102,0.35)}
+.btn-ig{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);color:#fff}
+.btn-ig:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(253,29,29,0.25)}
+.order-disc{font-family:var(--mono);font-size:10px;color:var(--text3);text-align:center;line-height:1.7;letter-spacing:0.05em}
 
-/* PRICING TABLE */
-.pricing-section{max-width:960px;margin:60px auto;padding:0 40px}
-.pricing-platforms{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
-.pricing-platform-btn{border:1px solid var(--card-border);background:rgba(255,255,255,0.025);color:var(--text2);border-radius:8px;padding:9px 12px;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:7px}
-.pricing-platform-btn:hover{border-color:rgba(176,77,255,0.35);color:var(--text)}
-.pricing-platform-btn.selected{border-color:var(--purple);background:rgba(176,77,255,0.12);color:var(--purple)}
-.pricing-table-wrap{overflow-x:auto;border:1px solid var(--card-border);border-radius:12px;background:var(--card)}
-.pricing-table{width:100%;border-collapse:collapse;background:var(--card);border:0}
-.pricing-table th{padding:14px 20px;text-align:left;font-family:'Orbitron',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text3);background:rgba(255,255,255,0.02);border-bottom:1px solid var(--card-border)}
-.pricing-table td{padding:14px 20px;font-size:14px;color:var(--text2);border-bottom:1px solid var(--card-border)}
+/* PRICING */
+.pricing-section{max-width:1200px;margin:0 auto;padding:0 48px 80px}
+.pricing-head{margin-bottom:28px}
+.s-kicker{font-family:var(--mono);font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.s-kicker::before{content:'';width:20px;height:1px;background:var(--accent)}
+.pricing-h2{font-family:var(--display);font-size:32px;font-weight:800;letter-spacing:-0.02em;margin-bottom:6px}
+.pricing-copy{font-size:14px;color:var(--text3);font-weight:300}
+.pricing-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.ptab{font-family:var(--mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;border:1px solid var(--border);background:transparent;color:var(--text3);padding:8px 14px;border-radius:3px;cursor:none;transition:all 0.2s;display:flex;align-items:center;gap:6px}
+.ptab:hover{border-color:var(--border2);color:var(--text2)}
+.ptab.active{border-color:var(--accent);color:var(--accent);background:rgba(168,255,0,0.06)}
+.pricing-table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:10px}
+.pricing-table{width:100%;border-collapse:collapse}
+.pricing-table th{padding:13px 18px;text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--text3);background:rgba(255,255,255,0.02);border-bottom:1px solid var(--border)}
+.pricing-table td{padding:13px 18px;font-size:13px;color:var(--text2);border-bottom:1px solid var(--border)}
 .pricing-table tr:last-child td{border-bottom:none}
-.pricing-table tr:hover td{background:rgba(176,77,255,0.03);color:var(--text)}
-.price-val{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;color:var(--green)}
-.qty-label{font-weight:700;color:var(--text)}
+.pricing-table tr:hover td{background:rgba(168,255,0,0.02);color:var(--text)}
+.price-v{font-family:var(--mono);font-size:12px;font-weight:500;color:var(--accent)}
+.qty-l{font-weight:600;color:var(--text);font-family:var(--mono)}
 .pricing-cards{display:none}
-.pricing-card{background:var(--card);border:1px solid var(--card-border);border-radius:10px;padding:16px;margin-bottom:12px}
-.pricing-card-qty{font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;color:var(--text);margin-bottom:12px}
-.pricing-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
-.pricing-card-label{font-size:11px;color:var(--text3);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
-.pricing-card-price{font-family:'Orbitron',sans-serif;font-size:13px;font-weight:700;color:var(--green)}
+.pricing-card{background:var(--c1);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:10px}
+.pc-qty{font-family:var(--mono);font-size:11px;font-weight:500;color:var(--text);margin-bottom:12px;letter-spacing:0.1em}
+.pc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+.pc-label{font-family:var(--mono);font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:3px}
+.pc-price{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--accent)}
 
-/* HOW IT WORKS */
-.hiw{max-width:960px;margin:80px auto;padding:0 40px}
-.hiw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:40px}
-.hiw-step{text-align:center}
-.hiw-icon{font-size:36px;margin-bottom:14px}
-.hiw-num{font-family:'Orbitron',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;color:var(--text3);text-transform:uppercase;margin-bottom:8px}
-.hiw-title{font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;color:var(--text)}
-.hiw-desc{font-size:13px;color:var(--text3);line-height:1.7;font-weight:300}
+/* PLATFORMS & FAQ */
+.how-section,.faq-section{max-width:1200px;margin:0 auto;padding:0 48px 80px}
+.hiw-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:40px;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.hiw-step{padding:32px 28px;border-right:1px solid var(--border);transition:background 0.3s}
+.hiw-step:last-child{border-right:none}
+.hiw-step:hover{background:var(--c1)}
+.hiw-icon{font-size:28px;margin-bottom:14px}
+.hiw-n{font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:0.15em;margin-bottom:8px}
+.hiw-title{font-family:var(--display);font-size:14px;font-weight:700;margin-bottom:8px}
+.hiw-desc{font-size:13px;color:var(--text2);line-height:1.65;font-weight:300}
+.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:40px}
+.faq-item{background:var(--c1);border:1px solid var(--border);border-radius:8px;padding:22px 24px;transition:border-color 0.3s}
+.faq-item:hover{border-color:var(--border2)}
+.faq-q{font-family:var(--display);font-size:14px;font-weight:700;margin-bottom:10px}
+.faq-a{font-size:14px;color:var(--text2);line-height:1.7;font-weight:300}
 
-/* AVIS & FAQ */
-.proof-section,.faq-section{max-width:960px;margin:80px auto;padding:0 40px}
-.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
-.proof-card,.faq-item{background:var(--card);border:1px solid var(--card-border);border-radius:10px;padding:22px}
-.proof-stars{color:var(--orange);letter-spacing:2px;font-size:13px;margin-bottom:12px}
-.proof-text{font-size:14px;color:var(--text2);line-height:1.7;font-weight:300;margin-bottom:16px}
-.proof-name{font-family:'Orbitron',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text)}
-.proof-meta{font-size:12px;color:var(--text3);margin-top:4px}
-.faq-list{display:flex;flex-direction:column;gap:12px;margin-top:32px}
-.faq-q{font-family:'Orbitron',sans-serif;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--text);margin-bottom:10px}
-.faq-a{font-size:14px;color:var(--text2);line-height:1.75;font-weight:300}
+/* REVIEWS */
+.proof-section{max-width:1200px;margin:0 auto;padding:0 48px 80px}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:40px}
+.proof-card{background:var(--c1);border:1px solid var(--border);border-radius:10px;padding:24px;transition:all 0.3s}
+.proof-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.proof-stars{color:var(--accent);font-size:13px;letter-spacing:2px;margin-bottom:12px}
+.proof-text{font-size:14px;color:var(--text2);line-height:1.75;font-weight:300;margin-bottom:16px}
+.proof-name{font-family:var(--display);font-size:13px;font-weight:600;color:var(--text)}
+.proof-meta{font-family:var(--mono);font-size:11px;color:var(--text3);margin-top:3px;letter-spacing:0.05em}
 
-/* FOOTER MINI */
-.mini-footer{text-align:center;padding:40px;border-top:1px solid var(--card-border);font-size:13px;color:var(--text3)}
-.mini-footer a{color:var(--text2);text-decoration:none}
-.mini-footer a:hover{color:var(--green)}
-.float-wa{position:fixed;bottom:32px;right:32px;z-index:999;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 8px 32px rgba(37,211,102,0.5);animation:waPulse 2.5s ease-in-out infinite}
-@keyframes waPulse{0%,100%{box-shadow:0 8px 32px rgba(37,211,102,0.5)}50%{box-shadow:0 8px 60px rgba(37,211,102,0.8)}}
+footer{padding:40px 48px;border-top:1px solid var(--border);text-align:center;font-family:var(--mono);font-size:11px;color:var(--text3);letter-spacing:0.1em}
+footer a{color:var(--text2);text-decoration:none;transition:color 0.2s}
+footer a:hover{color:var(--accent)}
 
-/* ANIMATE */
-@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-.anim{animation:fadeUp .6s ease both}
-.anim-1{animation-delay:.1s}.anim-2{animation-delay:.2s}.anim-3{animation-delay:.3s}.anim-4{animation-delay:.4s}
+.float-wa{position:fixed;bottom:32px;right:32px;z-index:900;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);display:flex;align-items:center;justify-content:center;font-size:24px;text-decoration:none;box-shadow:0 8px 32px rgba(37,211,102,0.4);cursor:none;transition:transform 0.3s}
+.float-wa::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:1px solid rgba(37,211,102,0.3);animation:waPing 2s ease-out infinite}
+@keyframes waPing{0%{transform:scale(1);opacity:0.6}100%{transform:scale(1.5);opacity:0}}
+.float-wa:hover{transform:scale(1.1)}
 
-@media(max-width:800px){
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
   .builder-grid{grid-template-columns:1fr}
   .order-summary{position:static}
-  .platform-selector{grid-template-columns:repeat(3,1fr)}
+  nav{padding:0 20px}
+  .builder,.pricing-section,.how-section,.faq-section,.proof-section{padding-left:20px;padding-right:20px}
   .hiw-grid{grid-template-columns:1fr 1fr}
+  .hiw-step:nth-child(2){border-right:none}
+  .hiw-step:nth-child(3){border-top:1px solid var(--border)}
   .proof-grid{grid-template-columns:1fr}
-  nav{padding:14px 20px}
 }
-@media(max-width:500px){
-  .platform-selector{grid-template-columns:repeat(2,1fr)}
+@media(max-width:600px){
+  .platform-grid{grid-template-columns:repeat(2,1fr)}
   .qty-grid{grid-template-columns:repeat(3,1fr)}
-  .service-selector{grid-template-columns:1fr}
-  .builder{padding:0 20px}
-  .proof-section,.faq-section{padding:0 20px}
-}
-@media(max-width:640px){
-  .pricing-section{padding:0 20px}
-  .pricing-platforms{display:grid;grid-template-columns:repeat(2,1fr)}
-  .pricing-platform-btn{justify-content:center;padding:10px 8px}
+  .svc-grid{grid-template-columns:1fr}
   .pricing-table-wrap{display:none}
   .pricing-cards{display:block}
+  .hiw-grid{grid-template-columns:1fr}
+  .hiw-step{border-right:none;border-bottom:1px solid var(--border)}
+  .hiw-step:last-child{border-bottom:none}
 }
 </style>
 </head>
 <body>
-<a href="#" class="float-wa" onclick="sendWhatsAppOrder();return false">💬</a>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<a href="index.html" class="float-wa">💬</a>
+
 <nav>
   <a href="index.html" class="nav-logo">LOCABEY</a>
   <a href="index.html" class="nav-back">← Back to Home</a>
 </nav>
 
 <div class="page-hero">
-  <div class="hero-glow"></div>
-  <div class="page-badge anim">⚡ Social Growth</div>
-  <h1 class="page-title anim anim-1">Social Media Boost Orders</h1>
-  <p class="page-sub anim anim-2">Choose a platform, select followers, likes, views, comments, reposts or other growth services, then send the order request. No password required — ever.</p>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="page-badge">⚡ Social Growth Orders</div>
+  <h1 class="page-h1">Boost Any Platform.<br><em>Instantly.</em></h1>
+  <p class="page-sub">Select platform, service and quantity. Send your order via WhatsApp. No password needed — ever.</p>
 </div>
 
-<div class="trust-row">
-  <div class="trust-item anim anim-1"><span class="trust-icon">🔐</span> No Password Needed</div>
-  <div class="trust-item anim anim-2"><span class="trust-icon">⚡</span> Delivery in 24h</div>
-  <div class="trust-item anim anim-3"><span class="trust-icon">💳</span> Secure Payment</div>
-  <div class="trust-item anim anim-4"><span class="trust-icon">🛡️</span> 7/7 Support</div>
-  <div class="trust-item anim"><span class="trust-icon">🎯</span> All Quantities</div>
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-dot"></span>No Password Needed</div>
+  <div class="trust-item"><span class="trust-dot"></span>Delivery in 24h</div>
+  <div class="trust-item"><span class="trust-dot"></span>Secure Payment</div>
+  <div class="trust-item"><span class="trust-dot"></span>7/7 Support</div>
+  <div class="trust-item"><span class="trust-dot"></span>All Quantities</div>
 </div>
 
-<!-- ORDER BUILDER -->
 <div class="builder">
   <div class="builder-grid">
-    <!-- CONFIGURATOR -->
-    <div class="configurator">
-
-      <!-- STEP 1: PLATFORM -->
+    <div>
+      <!-- STEP 1 -->
       <div class="step-card active" id="step1">
         <div class="step-header" onclick="toggleStep('step1')">
           <div class="step-num" id="num1">1</div>
           <div class="step-title">Choose Platform</div>
-          <div class="step-selection" id="sel1">Not selected</div>
+          <div class="step-sel" id="sel1">Not selected</div>
         </div>
         <div class="step-body">
-          <div class="platform-selector">
-            <div class="plat-btn" onclick="selectPlatform('Instagram','📸',this)">
-              <div class="plat-emoji">📸</div>
-              <div class="plat-name">Instagram</div>
-            </div>
-            <div class="plat-btn" onclick="selectPlatform('TikTok','🎵',this)">
-              <div class="plat-emoji">🎵</div>
-              <div class="plat-name">TikTok</div>
-            </div>
-            <div class="plat-btn" onclick="selectPlatform('YouTube','▶️',this)">
-              <div class="plat-emoji">▶️</div>
-              <div class="plat-name">YouTube</div>
-            </div>
-            <div class="plat-btn" onclick="selectPlatform('Facebook','📘',this)">
-              <div class="plat-emoji">📘</div>
-              <div class="plat-name">Facebook</div>
-            </div>
-            <div class="plat-btn" onclick="selectPlatform('X / Twitter','𝕏',this)">
-              <div class="plat-emoji" style="font-family:serif;font-weight:700;font-size:22px">𝕏</div>
-              <div class="plat-name">Twitter</div>
-            </div>
-            <div class="plat-btn" onclick="selectPlatform('Spotify','🎧',this)">
-              <div class="plat-emoji">🎧</div>
-              <div class="plat-name">Spotify</div>
-            </div>
-            <div class="plat-btn" onclick="selectPlatform('Snapchat','👻',this)">
-              <div class="plat-emoji">👻</div>
-              <div class="plat-name">Snapchat</div>
-            </div>
-            <div class="plat-btn" onclick="selectPlatform('Twitch','🟣',this)">
-              <div class="plat-emoji">🟣</div>
-              <div class="plat-name">Twitch</div>
-            </div>
-            <div class="plat-btn" onclick="selectPlatform('Telegram','✈️',this)">
-              <div class="plat-emoji">✈️</div>
-              <div class="plat-name">Telegram</div>
-            </div>
+          <div class="platform-grid">
+            <div class="plat-btn" onclick="selectPlatform('Instagram','📸',this)"><div class="plat-emoji">📸</div><div class="plat-name">Instagram</div></div>
+            <div class="plat-btn" onclick="selectPlatform('TikTok','🎵',this)"><div class="plat-emoji">🎵</div><div class="plat-name">TikTok</div></div>
+            <div class="plat-btn" onclick="selectPlatform('YouTube','▶️',this)"><div class="plat-emoji">▶️</div><div class="plat-name">YouTube</div></div>
+            <div class="plat-btn" onclick="selectPlatform('Facebook','📘',this)"><div class="plat-emoji">📘</div><div class="plat-name">Facebook</div></div>
+            <div class="plat-btn" onclick="selectPlatform('X / Twitter','𝕏',this)"><div class="plat-emoji" style="font-family:serif;font-weight:700;font-size:20px">𝕏</div><div class="plat-name">Twitter</div></div>
+            <div class="plat-btn" onclick="selectPlatform('Spotify','🎧',this)"><div class="plat-emoji">🎧</div><div class="plat-name">Spotify</div></div>
+            <div class="plat-btn" onclick="selectPlatform('Snapchat','👻',this)"><div class="plat-emoji">👻</div><div class="plat-name">Snapchat</div></div>
+            <div class="plat-btn" onclick="selectPlatform('Twitch','🟣',this)"><div class="plat-emoji">🟣</div><div class="plat-name">Twitch</div></div>
+            <div class="plat-btn" onclick="selectPlatform('Telegram','✈️',this)"><div class="plat-emoji">✈️</div><div class="plat-name">Telegram</div></div>
           </div>
         </div>
       </div>
-
-      <!-- STEP 2: SERVICE TYPE -->
+      <!-- STEP 2 -->
       <div class="step-card" id="step2">
         <div class="step-header" onclick="toggleStep('step2')">
           <div class="step-num" id="num2">2</div>
           <div class="step-title">Choose Service</div>
-          <div class="step-selection" id="sel2">Not selected</div>
+          <div class="step-sel" id="sel2">Not selected</div>
         </div>
         <div class="step-body">
-          <div class="service-selector" id="serviceList">
-            <!-- Populated by JS -->
-          </div>
+          <div class="svc-grid" id="serviceList"></div>
         </div>
       </div>
-
-      <!-- STEP 3: QUANTITY -->
+      <!-- STEP 3 -->
       <div class="step-card" id="step3">
         <div class="step-header" onclick="toggleStep('step3')">
           <div class="step-num" id="num3">3</div>
           <div class="step-title">Choose Quantity</div>
-          <div class="step-selection" id="sel3">Not selected</div>
+          <div class="step-sel" id="sel3">Not selected</div>
         </div>
         <div class="step-body">
           <div class="qty-grid">
@@ -292,199 +288,113 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
           </div>
           <div class="qty-custom">
             <label>Custom:</label>
-            <input type="number" id="customQty" placeholder="Enter custom amount..." min="10" onchange="setCustomQty(this.value)">
+            <input type="number" id="customQty" placeholder="Enter amount..." min="10" onchange="setCustomQty(this.value)">
           </div>
         </div>
       </div>
-
-      <!-- STEP 4: URL -->
+      <!-- STEP 4 -->
       <div class="step-card" id="step4">
         <div class="step-header" onclick="toggleStep('step4')">
           <div class="step-num" id="num4">4</div>
-          <div class="step-title">Your Profile URL</div>
-          <div class="step-selection" id="sel4">Not entered</div>
+          <div class="step-title">Profile URL</div>
+          <div class="step-sel" id="sel4">Not entered</div>
         </div>
         <div class="step-body">
-          <div class="url-input-wrap">
+          <div class="url-wrap">
             <input type="url" id="profileUrl" placeholder="https://instagram.com/yourusername" oninput="updateUrl(this.value)">
           </div>
-          <div class="url-hint">🔐 No password needed — only your public profile URL</div>
+          <div class="url-hint">🔐 Public profile URL only — no password ever needed</div>
         </div>
       </div>
-
     </div>
 
-    <!-- ORDER SUMMARY -->
+    <!-- SUMMARY -->
     <div class="order-summary">
-      <div class="summary-title">Your Order</div>
-      
-      <div class="summary-rows">
-        <div class="summary-row">
-          <span class="label">Platform</span>
-          <span class="value" id="sum-platform">—</span>
-        </div>
-        <div class="summary-row">
-          <span class="label">Service</span>
-          <span class="value" id="sum-service">—</span>
-        </div>
-        <div class="summary-row">
-          <span class="label">Quantity</span>
-          <span class="value" id="sum-qty">—</span>
-        </div>
-        <div class="summary-row">
-          <span class="label">Delivery</span>
-          <span class="value" style="color:var(--green)">Within 24h</span>
-        </div>
-        <div class="summary-divider"></div>
-        <div class="summary-row">
-          <span class="label">Price</span>
-          <span class="value" id="sum-price" style="color:var(--text3);font-size:12px">On request via WhatsApp</span>
-        </div>
+      <div class="sum-title">Order Summary</div>
+      <div class="sum-rows">
+        <div class="sum-row"><span class="l">Platform</span><span class="v" id="sum-plat">—</span></div>
+        <div class="sum-row"><span class="l">Service</span><span class="v" id="sum-svc">—</span></div>
+        <div class="sum-row"><span class="l">Quantity</span><span class="v" id="sum-qty">—</span></div>
+        <div class="sum-row"><span class="l">Delivery</span><span class="v" style="color:var(--accent)">Within 24h</span></div>
+        <div class="sum-div"></div>
+        <div class="sum-row"><span class="l">Est. Price</span><span class="v" id="sum-price-inline" style="color:var(--text3);font-size:12px;font-family:var(--mono)">Via WhatsApp</span></div>
       </div>
-
-      <div class="summary-features">
-        <div class="feature-row">No password required</div>
-        <div class="feature-row">Secure &amp; confidential</div>
-        <div class="feature-row">24h delivery guaranteed</div>
-        <div class="feature-row">7/7 after-service support</div>
+      <div class="sum-features">
+        <div class="sum-feat">No password required</div>
+        <div class="sum-feat">Secure & confidential</div>
+        <div class="sum-feat">24h delivery guaranteed</div>
+        <div class="sum-feat">7/7 after-service support</div>
       </div>
-      
-      <button class="order-btn" id="waOrderBtn" onclick="sendWhatsAppOrder()">
-        💬 Order via WhatsApp
-      </button>
-      <button class="order-btn order-btn-ig" onclick="sendInstagramOrder()">
-        📸 Order via Instagram DM
-      </button>
-      
-      <p class="order-disclaimer">Orders processed manually by our team. Payment details shared on WhatsApp. 100% secure.</p>
+      <button class="order-btn btn-wa" id="waOrderBtn" onclick="sendWhatsAppOrder()">💬 Order via WhatsApp</button>
+      <button class="order-btn btn-ig" onclick="sendInstagramOrder()">📸 Order via Instagram DM</button>
+      <p class="order-disc">Orders processed by our team. Payment details shared on WhatsApp. 100% secure.</p>
     </div>
   </div>
 </div>
 
-<!-- PRICING REFERENCE -->
+<!-- PRICING -->
 <div class="pricing-section">
-  <div style="margin-bottom:24px">
-    <div style="font-size:11px;color:var(--green);letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:12px"><span style="width:30px;height:1px;background:var(--green);display:block"></span>Price Guide</div>
-    <h2 id="pricingTitle" style="font-family:'Orbitron',sans-serif;font-size:28px;font-weight:900">Instagram Indicative Pricing</h2>
-    <p id="pricingCopy" style="font-size:14px;color:var(--text3);margin-top:8px;font-weight:300">Select a platform above to switch this guide. Final prices confirmed on WhatsApp.</p>
+  <div class="pricing-head reveal">
+    <div class="s-kicker">Price Guide</div>
+    <h2 class="pricing-h2" id="pricingTitle">Instagram Indicative Pricing</h2>
+    <p class="pricing-copy" id="pricingCopy">Final prices confirmed on WhatsApp. Volume discounts available.</p>
   </div>
-  <div class="pricing-platforms" id="pricingPlatformTabs" aria-label="Price guide platform selector"></div>
-  <div class="pricing-table-wrap">
-    <table class="pricing-table" aria-live="polite">
+  <div class="pricing-tabs reveal" id="pricingPlatformTabs"></div>
+  <div class="pricing-table-wrap reveal">
+    <table class="pricing-table">
       <thead id="pricingHead"></thead>
       <tbody id="pricingBody"></tbody>
     </table>
   </div>
-  <div class="pricing-cards" id="pricingCards" aria-live="polite"></div>
-  <p style="font-size:12px;color:var(--text3);margin-top:12px;text-align:center">📩 Contact us on WhatsApp for exact pricing and bulk discounts</p>
+  <div class="pricing-cards" id="pricingCards"></div>
+  <p style="font-family:var(--mono);font-size:11px;color:var(--text3);margin-top:12px;text-align:center;letter-spacing:0.1em">Contact us on WhatsApp for exact pricing and bulk discounts</p>
 </div>
 
 <!-- HOW IT WORKS -->
-<div class="hiw">
-  <div style="text-align:center;margin-bottom:0">
-    <div style="font-size:11px;color:var(--green);letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:12px;justify-content:center;display:flex;align-items:center;gap:12px"><span style="width:30px;height:1px;background:var(--green);display:block"></span>Process</div>
-    <h2 style="font-family:'Orbitron',sans-serif;font-size:32px;font-weight:900">How It Works</h2>
-  </div>
-  <div class="hiw-grid">
-    <div class="hiw-step">
-      <div class="hiw-icon">📋</div>
-      <div class="hiw-num">Step 01</div>
-      <div class="hiw-title">Configure</div>
-      <div class="hiw-desc">Select platform, service and quantity using the order builder above.</div>
-    </div>
-    <div class="hiw-step">
-      <div class="hiw-icon">💬</div>
-      <div class="hiw-num">Step 02</div>
-      <div class="hiw-title">Contact Us</div>
-      <div class="hiw-desc">We receive your order via WhatsApp or Instagram DM with all details pre-filled.</div>
-    </div>
-    <div class="hiw-step">
-      <div class="hiw-icon">💳</div>
-      <div class="hiw-num">Step 03</div>
-      <div class="hiw-title">Payment</div>
-      <div class="hiw-desc">Secure payment confirmation sent. We accept all major payment methods.</div>
-    </div>
-    <div class="hiw-step">
-      <div class="hiw-icon">⚡</div>
-      <div class="hiw-num">Step 04</div>
-      <div class="hiw-title">Delivery</div>
-      <div class="hiw-desc">Growth starts within hours. Full delivery in 24h. We confirm when done.</div>
-    </div>
+<div class="how-section">
+  <div class="s-kicker reveal">Process</div>
+  <h2 style="font-family:var(--display);font-size:32px;font-weight:800;letter-spacing:-0.02em;margin-bottom:0" class="reveal">How It Works</h2>
+  <div class="hiw-grid reveal">
+    <div class="hiw-step"><div class="hiw-icon">📋</div><div class="hiw-n">Step 01</div><div class="hiw-title">Configure</div><div class="hiw-desc">Select platform, service and quantity using the builder above.</div></div>
+    <div class="hiw-step"><div class="hiw-icon">💬</div><div class="hiw-n">Step 02</div><div class="hiw-title">Contact Us</div><div class="hiw-desc">Pre-filled WhatsApp or Instagram DM with all order details.</div></div>
+    <div class="hiw-step"><div class="hiw-icon">💳</div><div class="hiw-n">Step 03</div><div class="hiw-title">Payment</div><div class="hiw-desc">Price confirmed before payment. All major methods accepted.</div></div>
+    <div class="hiw-step"><div class="hiw-icon">⚡</div><div class="hiw-n">Step 04</div><div class="hiw-title">Delivered</div><div class="hiw-desc">Growth starts within hours. Full delivery in 24h guaranteed.</div></div>
   </div>
 </div>
 
-<!-- AVIS -->
+<!-- REVIEWS -->
 <div class="proof-section">
-  <div style="text-align:center;margin-bottom:0">
-    <div style="font-size:11px;color:var(--green);letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:12px;justify-content:center;display:flex;align-items:center;gap:12px"><span style="width:30px;height:1px;background:var(--green);display:block"></span>Avis</div>
-    <h2 style="font-family:'Orbitron',sans-serif;font-size:32px;font-weight:900">Boost Orders Feedback</h2>
-  </div>
+  <div class="s-kicker reveal">Reviews</div>
+  <h2 style="font-family:var(--display);font-size:32px;font-weight:800;letter-spacing:-0.02em;margin-bottom:0" class="reveal">Client Feedback</h2>
   <div class="proof-grid">
-    <div class="proof-card">
-      <div class="proof-stars">★★★★★</div>
-      <p class="proof-text">Fast delivery and easy order flow. I sent the profile URL, chose the quantity and got confirmation the same day.</p>
-      <div class="proof-name">Creator Account</div>
-      <div class="proof-meta">Instagram boost order</div>
-    </div>
-    <div class="proof-card">
-      <div class="proof-stars">★★★★★</div>
-      <p class="proof-text">Clear process, no password needed, and the team answered quickly on WhatsApp before launching the order.</p>
-      <div class="proof-name">Local Brand</div>
-      <div class="proof-meta">TikTok views order</div>
-    </div>
-    <div class="proof-card">
-      <div class="proof-stars">★★★★★</div>
-      <p class="proof-text">Useful for social proof on a launch campaign. Pricing was confirmed before payment and delivery was tracked.</p>
-      <div class="proof-name">Event Page</div>
-      <div class="proof-meta">Likes and views package</div>
-    </div>
+    <div class="proof-card reveal"><div class="proof-stars">★★★★★</div><p class="proof-text">Fast delivery and easy order flow. I sent the profile URL, chose the quantity and got confirmation the same day.</p><div class="proof-name">Creator Account</div><div class="proof-meta">Instagram boost order</div></div>
+    <div class="proof-card reveal"><div class="proof-stars">★★★★★</div><p class="proof-text">Clear process, no password needed, and the team answered quickly on WhatsApp before launching the order.</p><div class="proof-name">Local Brand</div><div class="proof-meta">TikTok views order</div></div>
+    <div class="proof-card reveal"><div class="proof-stars">★★★★★</div><p class="proof-text">Useful for social proof on a launch campaign. Pricing was confirmed before payment and delivery was tracked.</p><div class="proof-name">Event Page</div><div class="proof-meta">Likes and views package</div></div>
   </div>
 </div>
 
 <!-- FAQ -->
 <div class="faq-section">
-  <div style="text-align:center;margin-bottom:0">
-    <div style="font-size:11px;color:var(--green);letter-spacing:4px;text-transform:uppercase;font-weight:600;margin-bottom:12px;justify-content:center;display:flex;align-items:center;gap:12px"><span style="width:30px;height:1px;background:var(--green);display:block"></span>FAQ</div>
-    <h2 style="font-family:'Orbitron',sans-serif;font-size:32px;font-weight:900">Social Growth Questions</h2>
-  </div>
-  <div class="faq-list">
-    <div class="faq-item">
-      <div class="faq-q">Do you need my password?</div>
-      <div class="faq-a">No. We only need the public profile, post, video or page URL for the selected platform.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How do I order?</div>
-      <div class="faq-a">Choose the platform, service and quantity in the command form, then send the pre-filled request by WhatsApp or Instagram DM.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Is the price final on the table?</div>
-      <div class="faq-a">The table is indicative. We confirm the exact price before payment, especially for custom quantities or bulk orders.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">What is the difference with the agency?</div>
-      <div class="faq-a">This page is for quick social growth orders. The agency page is for real marketing work: websites, SEO, ads, content, photography, menus and long-term growth systems.</div>
-    </div>
+  <div class="s-kicker reveal">FAQ</div>
+  <h2 style="font-family:var(--display);font-size:32px;font-weight:800;letter-spacing:-0.02em;margin-bottom:0" class="reveal">Questions</h2>
+  <div class="faq-list reveal">
+    <div class="faq-item"><div class="faq-q">Do you need my password?</div><div class="faq-a">No. We only need the public profile, post, video or page URL. Your password is never required.</div></div>
+    <div class="faq-item"><div class="faq-q">How do I order?</div><div class="faq-a">Choose platform, service and quantity in the builder above, then send the pre-filled message via WhatsApp or Instagram DM.</div></div>
+    <div class="faq-item"><div class="faq-q">Are the prices on the table final?</div><div class="faq-a">The table is indicative. We confirm the exact price before payment, especially for custom quantities or bulk orders.</div></div>
+    <div class="faq-item"><div class="faq-q">What's the difference with the agency?</div><div class="faq-a">This page is for instant social growth orders. The agency page is for real marketing work: websites, SEO, ads, content, photography, menus and long-term growth systems.</div></div>
   </div>
 </div>
 
-<div class="mini-footer">
-  <p>© 2025 LocaBey Digital · <a href="index.html">Back to Homepage</a> · <a href="mailto:BilalJm@locabey.fr">BilalJm@locabey.fr</a></p>
-</div>
+<footer>© 2026 LocaBey Digital · <a href="index.html">Homepage</a> · <a href="mailto:BilalJm@locabey.fr">BilalJm@locabey.fr</a></footer>
 
 <script>
-const state={platform:'',service:'',qty:'',url:''};
+// Cursor
+const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px'});
+(function ar(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(ar)})();
 
-const platformEmojis={
-  Instagram:'📸',
-  TikTok:'🎵',
-  YouTube:'▶️',
-  Facebook:'📘',
-  'X / Twitter':'𝕏',
-  Spotify:'🎧',
-  Snapchat:'👻',
-  Twitch:'🟣',
-  Telegram:'✈️'
-};
+const state={platform:'',service:'',qty:'',url:''};
 
 const services={
   Instagram:['Followers','Likes','Views','Comments','Saves','Story Views','Reach','Shares'],
@@ -498,286 +408,139 @@ const services={
   Telegram:['Channel Members','Post Views','Reactions','Comments']
 };
 
-const svcEmojis={
-  Followers:'👥',Likes:'❤️',Views:'👁️',Comments:'💬',Saves:'🔖','Story Views':'📖',Reach:'📡','Live Viewers':'📡',
-  Subscribers:'🔔','Watch Hours':'⏱️','Page Likes':'👍','Post Likes':'👍',Shares:'🔄',Reposts:'🔁','Link Shares':'🔗',Impressions:'📊','Poll Votes':'🗳️',
-  'Monthly Listeners':'🎵','Playlist Adds':'➕',Plays:'▶️',Subscriptions:'⭐','Profile Views':'👁️',Favorites:'⭐','Channel Views':'📺',
-  'Clip Views':'🎥','Channel Members':'👥','Post Views':'📬',Reactions:'⚡'
-};
+const svcEmojis={Followers:'👥',Likes:'❤️',Views:'👁️',Comments:'💬',Saves:'🔖','Story Views':'📖',Reach:'📡',Shares:'🔄',Subscribers:'🔔','Watch Hours':'⏱️','Page Likes':'👍','Post Likes':'👍',Reposts:'🔁','Link Shares':'🔗','Poll Votes':'🗳️','Monthly Listeners':'🎧','Playlist Adds':'➕',Plays:'▶️',Subscriptions:'⭐','Profile Views':'👁️',Favorites:'⭐','Channel Views':'📺','Live Viewers':'📡','Clip Views':'🎥','Channel Members':'👥','Post Views':'📬',Reactions:'⚡'};
 
 const pricingGuides={
-  Instagram:{
-    services:['Followers','Likes','Views','Comments','Saves','Story Views','Reach','Shares'],
-    rows:[
-      {qty:'100',prices:['5€','3€','1€','10€','5€','2€','3€','4€']},
-      {qty:'500',prices:['10€','7€','3€','30€','12€','5€','8€','10€']},
-      {qty:'1,000',prices:['20€','12€','5€','50€','20€','9€','15€','18€']},
-      {qty:'5,000',prices:['45€','30€','15€','150€','60€','20€','40€','50€']},
-      {qty:'10,000',prices:['80€','60€','25€','250€','110€','35€','75€','90€']},
-      {qty:'Custom',prices:['Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis']}
-    ]
-  },
-  TikTok:{
-    services:['Followers','Likes','Views','Comments','Shares','Favorites','Reposts'],
-    rows:[
-      {qty:'100',prices:['5€','3€','1€','10€','5€','5€','5€']},
-      {qty:'500',prices:['15€','7€','3€','25€','12€','15€','15€']},
-      {qty:'1,000',prices:['25€','15€','5€','45€','22€','25€','25€']},
-      {qty:'5,000',prices:['50€','35€','12€','120€','65€','75€','Sur devis']},
-      {qty:'10,000',prices:['90€','70€','20€','220€','120€','140€','Sur devis']},
-      {qty:'Custom',prices:['Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis']}
-    ]
-  },
-  YouTube:{
-    services:['Subscribers','Views','Likes','Comments','Watch Hours','Shares'],
-    rows:[
-      {qty:'100',prices:['10€','2€','5€','15€','20€','5€']},
-      {qty:'500',prices:['40€','5€','10€','40€','60€','15€']},
-      {qty:'1,000',prices:['70€','10€','20€','70€','100€','25€']},
-      {qty:'5,000',prices:['200€','25€','50€','180€','300€','60€']},
-      {qty:'10,000',prices:['350€','45€','80€','320€','550€','110€']},
-      {qty:'Custom',prices:['Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis']}
-    ]
-  },
-  Facebook:{
-    services:['Page Likes','Post Likes','Followers','Comments'],
-    rows:[
-      {qty:'100',prices:['2€','1€','3€','5€']},
-      {qty:'500',prices:['10€','5€','15€','10€']},
-      {qty:'1,000',prices:['15€','10€','20€','50€']},
-      {qty:'5,000',prices:['60€','40€','75€','150€']},
-      {qty:'10,000',prices:['100€','75€','120€','200€']},
-      {qty:'Up to 5 million',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
-    ]
-  },
-  'X / Twitter':{
-    services:['Followers','Likes','Reposts','Link Shares','Poll Votes','Views'],
-    rows:[
-      {qty:'100',prices:['15€','10€','Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'500',prices:['75€','50€','Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'1,000',prices:['150€','100€','Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'5,000',prices:['500€','400€','Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'10,000',prices:['1000€','800€','Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'Custom up to 5 million',prices:['Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis']}
-    ]
-  },
-  Spotify:{
-    services:['Plays','Followers','Monthly Listeners','Playlist Adds'],
-    rows:[
-      {qty:'100',prices:['2€','7€','10€','8€']},
-      {qty:'500',prices:['5€','15€','20€','18€']},
-      {qty:'1,000',prices:['10€','25€','40€','35€']},
-      {qty:'5,000',prices:['25€','70€','100€','90€']},
-      {qty:'10,000',prices:['45€','120€','170€','160€']},
-      {qty:'Custom',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
-    ]
-  },
-  Snapchat:{
-    services:['Followers','Story Views','Subscriptions','Profile Views'],
-    rows:[
-      {qty:'100',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'500',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'1,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'5,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'10,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'Up to 5 million',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
-    ]
-  },
-  Twitch:{
-    services:['Followers','Channel Views','Live Viewers','Clip Views'],
-    rows:[
-      {qty:'100',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'500',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'1,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'5,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'10,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'Up to 5 million',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
-    ]
-  },
-  Telegram:{
-    services:['Channel Members','Post Views','Reactions','Comments'],
-    rows:[
-      {qty:'100',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'500',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'1,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'5,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'10,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'Up to 5 million',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
-    ]
-  }
+  Instagram:{services:['Followers','Likes','Views','Comments','Saves','Story Views','Reach','Shares'],rows:[{qty:'100',prices:['5€','3€','1€','10€','5€','2€','3€','4€']},{qty:'500',prices:['10€','7€','3€','30€','12€','5€','8€','10€']},{qty:'1,000',prices:['20€','12€','5€','50€','20€','9€','15€','18€']},{qty:'5,000',prices:['45€','30€','15€','150€','60€','20€','40€','50€']},{qty:'10,000',prices:['80€','60€','25€','250€','110€','35€','75€','90€']},{qty:'Custom',prices:['Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis']}]},
+  TikTok:{services:['Followers','Likes','Views','Comments','Shares','Favorites','Reposts'],rows:[{qty:'100',prices:['5€','3€','1€','10€','5€','5€','5€']},{qty:'500',prices:['15€','7€','3€','25€','12€','15€','15€']},{qty:'1,000',prices:['25€','15€','5€','45€','22€','25€','25€']},{qty:'5,000',prices:['50€','35€','12€','120€','65€','75€','Sur devis']},{qty:'10,000',prices:['90€','70€','20€','220€','120€','140€','Sur devis']},{qty:'Custom',prices:['Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis']}]},
+  YouTube:{services:['Subscribers','Views','Likes','Comments','Watch Hours','Shares'],rows:[{qty:'100',prices:['10€','2€','5€','15€','20€','5€']},{qty:'500',prices:['40€','5€','10€','40€','60€','15€']},{qty:'1,000',prices:['70€','10€','20€','70€','100€','25€']},{qty:'5,000',prices:['200€','25€','50€','180€','300€','60€']},{qty:'10,000',prices:['350€','45€','80€','320€','550€','110€']},{qty:'Custom',prices:['Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis']}]},
+  Facebook:{services:['Page Likes','Post Likes','Followers','Comments'],rows:[{qty:'100',prices:['2€','1€','3€','5€']},{qty:'500',prices:['10€','5€','15€','10€']},{qty:'1,000',prices:['15€','10€','20€','50€']},{qty:'5,000',prices:['60€','40€','75€','150€']},{qty:'10,000',prices:['100€','75€','120€','200€']},{qty:'5M+',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}]},
+  'X / Twitter':{services:['Followers','Likes','Reposts','Link Shares','Poll Votes','Views'],rows:[{qty:'100',prices:['15€','10€','Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'500',prices:['75€','50€','Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'1,000',prices:['150€','100€','Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'5,000',prices:['500€','400€','Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'10,000',prices:['1000€','800€','Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'Custom 5M+',prices:['Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis']}]},
+  Spotify:{services:['Plays','Followers','Monthly Listeners','Playlist Adds'],rows:[{qty:'100',prices:['2€','7€','10€','8€']},{qty:'500',prices:['5€','15€','20€','18€']},{qty:'1,000',prices:['10€','25€','40€','35€']},{qty:'5,000',prices:['25€','70€','100€','90€']},{qty:'10,000',prices:['45€','120€','170€','160€']},{qty:'Custom',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}]},
+  Snapchat:{services:['Followers','Story Views','Subscriptions','Profile Views'],rows:[{qty:'100',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'500',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'1,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'5,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'10,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'5M+',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}]},
+  Twitch:{services:['Followers','Channel Views','Live Viewers','Clip Views'],rows:[{qty:'100',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'500',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'1,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'5,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'10,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'5M+',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}]},
+  Telegram:{services:['Channel Members','Post Views','Reactions','Comments'],rows:[{qty:'100',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'500',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'1,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'5,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'10,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},{qty:'5M+',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}]}
 };
 
-function getPricingGuide(platform){
-  const platformName=platform||'Instagram';
-  return pricingGuides[platformName]||{
-    services:(services[platformName]||['Followers','Likes','Views','Comments']).slice(0,4),
-    rows:[
-      {qty:'100',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'500',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'1,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'5,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'10,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-      {qty:'Custom',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
-    ]
-  };
+const platformEmojis={Instagram:'📸',TikTok:'🎵',YouTube:'▶️',Facebook:'📘','X / Twitter':'𝕏',Spotify:'🎧',Snapchat:'👻',Twitch:'🟣',Telegram:'✈️'};
+
+function renderPricingGuide(p){
+  const name=p||'Instagram';
+  const g=pricingGuides[name]||{services:(services[name]||[]).slice(0,4),rows:[{qty:'100',prices:Array(4).fill('Sur devis')},{qty:'Custom',prices:Array(4).fill('Sur devis')}]};
+  document.querySelectorAll('.ptab').forEach(b=>b.classList.toggle('active',b.dataset.p===name));
+  document.getElementById('pricingTitle').textContent=name+' Indicative Pricing';
+  document.getElementById('pricingCopy').textContent='Showing '+name+'. Final prices confirmed on WhatsApp.';
+  document.getElementById('pricingHead').innerHTML='<tr><th>Qty</th>'+g.services.map(s=>'<th>'+s+'</th>').join('')+'</tr>';
+  document.getElementById('pricingBody').innerHTML=g.rows.map(r=>'<tr><td class="qty-l">'+r.qty+'</td>'+r.prices.map(pr=>'<td class="price-v">'+pr+'</td>').join('')+'</tr>').join('');
+  document.getElementById('pricingCards').innerHTML=g.rows.map(r=>'<div class="pricing-card"><div class="pc-qty">'+r.qty+'</div><div class="pc-grid">'+g.services.map((s,i)=>'<div><div class="pc-label">'+s+'</div><div class="pc-price">'+r.prices[i]+'</div></div>').join('')+'</div></div>').join('');
 }
 
-function renderPricingGuide(platform){
-  const platformName=platform||'Instagram';
-  const guide=getPricingGuide(platformName);
-  document.querySelectorAll('.pricing-platform-btn').forEach(btn=>btn.classList.toggle('selected',btn.dataset.platform===platformName));
-  document.getElementById('pricingTitle').textContent=platformName+' Indicative Pricing';
-  document.getElementById('pricingCopy').textContent='Showing '+platformName+' services. Final prices confirmed on WhatsApp, with volume discounts available.';
-  document.getElementById('pricingHead').innerHTML='<tr><th>Quantity</th>'+guide.services.map(s=>'<th>'+s+'</th>').join('')+'</tr>';
-  document.getElementById('pricingBody').innerHTML=guide.rows.map(row=>'<tr><td class="qty-label">'+row.qty+'</td>'+row.prices.map(price=>'<td class="price-val">'+price+'</td>').join('')+'</tr>').join('');
-  document.getElementById('pricingCards').innerHTML=guide.rows.map(row=>{
-    const prices=guide.services.map((service,index)=>'<div><div class="pricing-card-label">'+service+'</div><div class="pricing-card-price">'+row.prices[index]+'</div></div>').join('');
-    return '<div class="pricing-card"><div class="pricing-card-qty">'+row.qty+'</div><div class="pricing-card-grid">'+prices+'</div></div>';
-  }).join('');
-  updatePriceSummary();
-}
-
-function renderPricingPlatformTabs(){
-  const tabs=document.getElementById('pricingPlatformTabs');
-  tabs.innerHTML=Object.keys(pricingGuides).map(platform=>{
-    const safePlatform=platform.replace(/'/g,"\\'");
-    return '<button type="button" class="pricing-platform-btn" data-platform="'+platform+'" onclick="showPricingPlatform(\''+safePlatform+'\')"><span>'+platformEmojis[platform]+'</span><span>'+platform+'</span></button>';
-  }).join('');
-}
-
-function showPricingPlatform(platform){
-  renderPricingGuide(platform);
+function renderPricingTabs(){
+  document.getElementById('pricingPlatformTabs').innerHTML=Object.keys(pricingGuides).map(p=>'<button class="ptab" data-p="'+p+'" onclick="renderPricingGuide(\''+p.replace(/'/g,"\\'")+'\')">'+(platformEmojis[p]||'')+' '+p+'</button>').join('');
 }
 
 function selectPlatform(name,emoji,el){
-  document.querySelectorAll('.plat-btn').forEach(b=>b.classList.remove('selected'));
-  el.classList.add('selected');
-  state.platform=name;
+  document.querySelectorAll('.plat-btn').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel');
+  state.platform=name; state.service='';
   document.getElementById('sel1').textContent=emoji+' '+name;
-  document.getElementById('num1').textContent='✓';
-  document.getElementById('num1').classList.add('done');
-  document.getElementById('sum-platform').textContent=name;
-  // Reset service
-  state.service='';
+  setDone('num1');
+  document.getElementById('sum-plat').textContent=name;
   document.getElementById('sel2').textContent='Not selected';
-  document.getElementById('sum-service').textContent='—';
-  // Build service list
+  document.getElementById('sum-svc').textContent='—';
   const list=document.getElementById('serviceList');
   list.innerHTML='';
   (services[name]||[]).forEach(s=>{
-    const btn=document.createElement('div');
-    btn.className='svc-btn';
-    btn.innerHTML=`<span class="svc-emoji">${svcEmojis[s]||'✨'}</span><span class="svc-label">${s}</span>`;
-    btn.onclick=function(){selectService(s,this)};
-    list.appendChild(btn);
+    const b=document.createElement('div');
+    b.className='svc-btn';
+    b.innerHTML='<span class="svc-emoji">'+(svcEmojis[s]||'✨')+'</span><span class="svc-label">'+s+'</span>';
+    b.onclick=function(){selectService(s,this)};
+    list.appendChild(b);
   });
   openStep('step2');
   renderPricingGuide(name);
-  updateOrderBtn();
-  updatePriceSummary();
+  updatePriceInline();
 }
 
 function selectService(name,el){
-  document.querySelectorAll('.svc-btn').forEach(b=>b.classList.remove('selected'));
-  el.classList.add('selected');
+  document.querySelectorAll('.svc-btn').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel');
   state.service=name;
   document.getElementById('sel2').textContent=name;
-  document.getElementById('num2').textContent='✓';
-  document.getElementById('num2').classList.add('done');
-  document.getElementById('sum-service').textContent=name;
+  setDone('num2');
+  document.getElementById('sum-svc').textContent=name;
   openStep('step3');
-  updateOrderBtn();
-  updatePriceSummary();
+  updatePriceInline();
 }
 
 function selectQty(qty,el){
-  document.querySelectorAll('.qty-btn').forEach(b=>b.classList.remove('selected'));
-  el.classList.add('selected');
+  document.querySelectorAll('.qty-btn').forEach(b=>b.classList.remove('sel'));
+  el.classList.add('sel');
   state.qty=qty;
   document.getElementById('sel3').textContent=qty;
-  document.getElementById('num3').textContent='✓';
-  document.getElementById('num3').classList.add('done');
+  setDone('num3');
   document.getElementById('sum-qty').textContent=qty;
   document.getElementById('customQty').value='';
   openStep('step4');
-  updateOrderBtn();
-  updatePriceSummary();
+  updatePriceInline();
 }
 
 function setCustomQty(v){
   if(!v)return;
-  document.querySelectorAll('.qty-btn').forEach(b=>b.classList.remove('selected'));
-  const formatted=parseInt(v).toLocaleString();
-  state.qty=formatted;
-  document.getElementById('sel3').textContent=formatted;
-  document.getElementById('num3').textContent='✓';
-  document.getElementById('num3').classList.add('done');
-  document.getElementById('sum-qty').textContent=formatted;
+  document.querySelectorAll('.qty-btn').forEach(b=>b.classList.remove('sel'));
+  const f=parseInt(v).toLocaleString();
+  state.qty=f;
+  document.getElementById('sel3').textContent=f;
+  setDone('num3');
+  document.getElementById('sum-qty').textContent=f;
   openStep('step4');
-  updateOrderBtn();
-  updatePriceSummary();
+  updatePriceInline();
 }
 
 function updateUrl(v){
   state.url=v;
   document.getElementById('sel4').textContent=v?'URL entered':'Not entered';
-  if(v){document.getElementById('num4').textContent='✓';document.getElementById('num4').classList.add('done');}
-  updateOrderBtn();
+  if(v) setDone('num4');
 }
 
 function openStep(id){
   document.querySelectorAll('.step-card').forEach(c=>c.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
-
 function toggleStep(id){
   const el=document.getElementById(id);
   if(el.classList.contains('active'))el.classList.remove('active');
   else{document.querySelectorAll('.step-card').forEach(c=>c.classList.remove('active'));el.classList.add('active');}
 }
-
-function updateOrderBtn(){
-  const btn=document.getElementById('waOrderBtn');
-  if(state.platform&&state.service&&state.qty){
-    btn.style.opacity='1';
-  } else {
-    btn.style.opacity='0.6';
-  }
+function setDone(id){
+  const el=document.getElementById(id);
+  el.textContent='✓'; el.classList.add('done');
 }
 
-function findSelectedPrice(){
-  if(!state.platform||!state.service||!state.qty)return '';
-  const guide=getPricingGuide(state.platform);
-  const serviceIndex=guide.services.indexOf(state.service);
-  if(serviceIndex===-1)return '';
-  const row=guide.rows.find(item=>item.qty===state.qty);
-  return row ? row.prices[serviceIndex] : '';
+function updatePriceInline(){
+  const el=document.getElementById('sum-price-inline');
+  if(!state.platform||!state.service||!state.qty){el.textContent='Via WhatsApp';el.style.color='var(--text3)';el.style.fontSize='12px';el.style.fontFamily='var(--mono)';return;}
+  const g=pricingGuides[state.platform];
+  if(!g){el.textContent='Via WhatsApp';return;}
+  const si=g.services.indexOf(state.service);
+  if(si===-1){el.textContent='Via WhatsApp';return;}
+  const row=g.rows.find(r=>r.qty===state.qty);
+  const price=row?row.prices[si]:'';
+  if(price&&price!=='Sur devis'){el.textContent=price;el.style.color='var(--accent)';el.style.fontSize='18px';el.style.fontFamily='var(--display)';el.style.fontWeight='700';}
+  else{el.textContent=price||'Via WhatsApp';el.style.color='var(--text3)';el.style.fontSize='12px';el.style.fontFamily='var(--mono)';el.style.fontWeight='400';}
 }
 
-function updatePriceSummary(){
-  const priceEl=document.getElementById('sum-price');
-  if(!priceEl)return;
-  const price=findSelectedPrice();
-  priceEl.textContent=price||'On request via WhatsApp';
-  priceEl.style.color=price?'var(--green)':'var(--text3)';
-  priceEl.style.fontSize=price?'16px':'12px';
+function buildMsg(){
+  return `Bonjour LocaBey! 🚀\n\nJe voudrais commander:\n\n📱 Plateforme: ${state.platform||'?'}\n📊 Service: ${state.service||'?'}\n🎯 Quantité: ${state.qty||'?'}\n🔗 URL: ${state.url||'À fournir'}\n\nMerci!`;
 }
+function sendWhatsAppOrder(){window.open('https://wa.me/33617783572?text='+encodeURIComponent(buildMsg()),'_blank')}
+function sendInstagramOrder(){window.open('https://instagram.com/locabey','_blank')}
 
-function buildMessage(){
-  return `Bonjour LocaBey! 🚀\n\nJe voudrais commander:\n\n📱 Plateforme: ${state.platform||'?'}\n📊 Service: ${state.service||'?'}\n🎯 Quantité: ${state.qty||'?'}\n🔗 URL: ${state.url||'A fournir'}\n\nMerci!`;
-}
+// Reveal
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in')}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-function sendWhatsAppOrder(){
-  const msg=encodeURIComponent(buildMessage());
-  window.open('https://wa.me/33617783572?text='+msg,'_blank');
-}
-
-function sendInstagramOrder(){
-  window.open('https://instagram.com/locabey','_blank');
-}
-
-updateOrderBtn();
-renderPricingPlatformTabs();
+renderPricingTabs();
 renderPricingGuide('Instagram');
 </script>
 </body>
