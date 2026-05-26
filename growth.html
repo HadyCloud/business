@@ -105,6 +105,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
 
 /* PRICING TABLE */
 .pricing-section{max-width:960px;margin:60px auto;padding:0 40px}
+.pricing-platforms{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.pricing-platform-btn{border:1px solid var(--card-border);background:rgba(255,255,255,0.025);color:var(--text2);border-radius:8px;padding:9px 12px;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:7px}
+.pricing-platform-btn:hover{border-color:rgba(176,77,255,0.35);color:var(--text)}
+.pricing-platform-btn.selected{border-color:var(--purple);background:rgba(176,77,255,0.12);color:var(--purple)}
 .pricing-table-wrap{overflow-x:auto;border:1px solid var(--card-border);border-radius:12px;background:var(--card)}
 .pricing-table{width:100%;border-collapse:collapse;background:var(--card);border:0}
 .pricing-table th{padding:14px 20px;text-align:left;font-family:'Orbitron',sans-serif;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text3);background:rgba(255,255,255,0.02);border-bottom:1px solid var(--card-border)}
@@ -170,6 +174,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
 }
 @media(max-width:640px){
   .pricing-section{padding:0 20px}
+  .pricing-platforms{display:grid;grid-template-columns:repeat(2,1fr)}
+  .pricing-platform-btn{justify-content:center;padding:10px 8px}
   .pricing-table-wrap{display:none}
   .pricing-cards{display:block}
 }
@@ -332,7 +338,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
         <div class="summary-divider"></div>
         <div class="summary-row">
           <span class="label">Price</span>
-          <span class="value" style="color:var(--text3);font-size:12px">On request via WhatsApp</span>
+          <span class="value" id="sum-price" style="color:var(--text3);font-size:12px">On request via WhatsApp</span>
         </div>
       </div>
 
@@ -362,6 +368,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
     <h2 id="pricingTitle" style="font-family:'Orbitron',sans-serif;font-size:28px;font-weight:900">Instagram Indicative Pricing</h2>
     <p id="pricingCopy" style="font-size:14px;color:var(--text3);margin-top:8px;font-weight:300">Select a platform above to switch this guide. Final prices confirmed on WhatsApp.</p>
   </div>
+  <div class="pricing-platforms" id="pricingPlatformTabs" aria-label="Price guide platform selector"></div>
   <div class="pricing-table-wrap">
     <table class="pricing-table" aria-live="polite">
       <thead id="pricingHead"></thead>
@@ -467,6 +474,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
 <script>
 const state={platform:'',service:'',qty:'',url:''};
 
+const platformEmojis={
+  Instagram:'📸',
+  TikTok:'🎵',
+  YouTube:'▶️',
+  Facebook:'📘',
+  'X / Twitter':'𝕏',
+  Spotify:'🎧',
+  Snapchat:'👻',
+  Twitch:'🟣',
+  Telegram:'✈️'
+};
+
 const services={
   Instagram:['Followers','Likes','Views','Comments','Saves','Story Views','Reach','Shares'],
   TikTok:['Followers','Likes','Views','Comments','Shares','Favorites','Reposts'],
@@ -474,9 +493,9 @@ const services={
   Facebook:['Page Likes','Post Likes','Followers','Comments'],
   'X / Twitter':['Followers','Likes','Reposts','Link Shares','Poll Votes','Views'],
   Spotify:['Plays','Followers','Monthly Listeners','Playlist Adds'],
-  Snapchat:['Followers','Story Views','Subscriptions'],
+  Snapchat:['Followers','Story Views','Subscriptions','Profile Views'],
   Twitch:['Followers','Channel Views','Live Viewers','Clip Views'],
-  Telegram:['Channel Members','Post Views','Reactions']
+  Telegram:['Channel Members','Post Views','Reactions','Comments']
 };
 
 const svcEmojis={
@@ -606,6 +625,7 @@ function getPricingGuide(platform){
 function renderPricingGuide(platform){
   const platformName=platform||'Instagram';
   const guide=getPricingGuide(platformName);
+  document.querySelectorAll('.pricing-platform-btn').forEach(btn=>btn.classList.toggle('selected',btn.dataset.platform===platformName));
   document.getElementById('pricingTitle').textContent=platformName+' Indicative Pricing';
   document.getElementById('pricingCopy').textContent='Showing '+platformName+' services. Final prices confirmed on WhatsApp, with volume discounts available.';
   document.getElementById('pricingHead').innerHTML='<tr><th>Quantity</th>'+guide.services.map(s=>'<th>'+s+'</th>').join('')+'</tr>';
@@ -614,6 +634,19 @@ function renderPricingGuide(platform){
     const prices=guide.services.map((service,index)=>'<div><div class="pricing-card-label">'+service+'</div><div class="pricing-card-price">'+row.prices[index]+'</div></div>').join('');
     return '<div class="pricing-card"><div class="pricing-card-qty">'+row.qty+'</div><div class="pricing-card-grid">'+prices+'</div></div>';
   }).join('');
+  updatePriceSummary();
+}
+
+function renderPricingPlatformTabs(){
+  const tabs=document.getElementById('pricingPlatformTabs');
+  tabs.innerHTML=Object.keys(pricingGuides).map(platform=>{
+    const safePlatform=platform.replace(/'/g,"\\'");
+    return '<button type="button" class="pricing-platform-btn" data-platform="'+platform+'" onclick="showPricingPlatform(\''+safePlatform+'\')"><span>'+platformEmojis[platform]+'</span><span>'+platform+'</span></button>';
+  }).join('');
+}
+
+function showPricingPlatform(platform){
+  renderPricingGuide(platform);
 }
 
 function selectPlatform(name,emoji,el){
@@ -641,6 +674,7 @@ function selectPlatform(name,emoji,el){
   openStep('step2');
   renderPricingGuide(name);
   updateOrderBtn();
+  updatePriceSummary();
 }
 
 function selectService(name,el){
@@ -653,6 +687,7 @@ function selectService(name,el){
   document.getElementById('sum-service').textContent=name;
   openStep('step3');
   updateOrderBtn();
+  updatePriceSummary();
 }
 
 function selectQty(qty,el){
@@ -666,6 +701,7 @@ function selectQty(qty,el){
   document.getElementById('customQty').value='';
   openStep('step4');
   updateOrderBtn();
+  updatePriceSummary();
 }
 
 function setCustomQty(v){
@@ -679,6 +715,7 @@ function setCustomQty(v){
   document.getElementById('sum-qty').textContent=formatted;
   openStep('step4');
   updateOrderBtn();
+  updatePriceSummary();
 }
 
 function updateUrl(v){
@@ -708,6 +745,24 @@ function updateOrderBtn(){
   }
 }
 
+function findSelectedPrice(){
+  if(!state.platform||!state.service||!state.qty)return '';
+  const guide=getPricingGuide(state.platform);
+  const serviceIndex=guide.services.indexOf(state.service);
+  if(serviceIndex===-1)return '';
+  const row=guide.rows.find(item=>item.qty===state.qty);
+  return row ? row.prices[serviceIndex] : '';
+}
+
+function updatePriceSummary(){
+  const priceEl=document.getElementById('sum-price');
+  if(!priceEl)return;
+  const price=findSelectedPrice();
+  priceEl.textContent=price||'On request via WhatsApp';
+  priceEl.style.color=price?'var(--green)':'var(--text3)';
+  priceEl.style.fontSize=price?'16px':'12px';
+}
+
 function buildMessage(){
   return `Bonjour LocaBey! 🚀\n\nJe voudrais commander:\n\n📱 Plateforme: ${state.platform||'?'}\n📊 Service: ${state.service||'?'}\n🎯 Quantité: ${state.qty||'?'}\n🔗 URL: ${state.url||'A fournir'}\n\nMerci!`;
 }
@@ -722,6 +777,7 @@ function sendInstagramOrder(){
 }
 
 updateOrderBtn();
+renderPricingPlatformTabs();
 renderPricingGuide('Instagram');
 </script>
 </body>
