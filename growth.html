@@ -468,60 +468,138 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 40px;display:f
 const state={platform:'',service:'',qty:'',url:''};
 
 const services={
-  Instagram:['Followers','Likes','Views','Comments','Saves','Story Views','Reels Views','Live Viewers'],
-  TikTok:['Followers','Likes','Views','Comments','Shares','Profile Views'],
-  YouTube:['Subscribers','Views','Likes','Comments','Watch Time (hrs)'],
-  Facebook:['Page Likes','Post Likes','Followers','Shares','Comments'],
-  'X / Twitter':['Followers','Likes','Retweets','Impressions','Poll Votes'],
-  Spotify:['Streams','Followers','Monthly Listeners','Playlist Adds'],
+  Instagram:['Followers','Likes','Views','Comments','Saves','Story Views','Reach','Shares'],
+  TikTok:['Followers','Likes','Views','Comments','Shares','Favorites','Reposts'],
+  YouTube:['Subscribers','Views','Likes','Comments','Watch Hours','Shares'],
+  Facebook:['Page Likes','Post Likes','Followers','Comments'],
+  'X / Twitter':['Followers','Likes','Reposts','Link Shares','Poll Votes','Views'],
+  Spotify:['Plays','Followers','Monthly Listeners','Playlist Adds'],
   Snapchat:['Followers','Story Views','Subscriptions'],
   Twitch:['Followers','Channel Views','Live Viewers','Clip Views'],
   Telegram:['Channel Members','Post Views','Reactions']
 };
 
 const svcEmojis={
-  Followers:'👥',Likes:'❤️',Views:'👁️',Comments:'💬',Saves:'🔖','Story Views':'📖','Reels Views':'🎬','Live Viewers':'📡',
-  Subscribers:'🔔','Watch Time (hrs)':'⏱️','Page Likes':'👍','Shares':'🔄','Impressions':'📊','Poll Votes':'🗳️',
-  Retweets:'🔁','Monthly Listeners':'🎵','Playlist Adds':'➕',Streams:'▶️',Subscriptions:'⭐','Channel Views':'📺',
+  Followers:'👥',Likes:'❤️',Views:'👁️',Comments:'💬',Saves:'🔖','Story Views':'📖',Reach:'📡','Live Viewers':'📡',
+  Subscribers:'🔔','Watch Hours':'⏱️','Page Likes':'👍','Post Likes':'👍',Shares:'🔄',Reposts:'🔁','Link Shares':'🔗',Impressions:'📊','Poll Votes':'🗳️',
+  'Monthly Listeners':'🎵','Playlist Adds':'➕',Plays:'▶️',Subscriptions:'⭐','Profile Views':'👁️',Favorites:'⭐','Channel Views':'📺',
   'Clip Views':'🎥','Channel Members':'👥','Post Views':'📬',Reactions:'⚡'
 };
 
-const quoteRows=[
-  {qty:'100',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-  {qty:'500',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-  {qty:'1,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-  {qty:'5,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-  {qty:'10,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
-  {qty:'Up to 5 million',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
-];
-
 const pricingGuides={
   Instagram:{
-    services:['Followers','Likes','Views','Comments'],
+    services:['Followers','Likes','Views','Comments','Saves','Story Views','Reach','Shares'],
     rows:[
-      {qty:'100',prices:['2€','1€','0.50€','6€']},
-      {qty:'500',prices:['6€','5€','2.50€','30€']},
-      {qty:'1,000',prices:['10€','8€','5€','60€']},
-      {qty:'5,000',prices:['45€','35€','25€','300€']},
-      {qty:'10,000',prices:['80€','60€','50€','600€']},
+      {qty:'100',prices:['5€','3€','1€','10€','5€','2€','3€','4€']},
+      {qty:'500',prices:['10€','7€','3€','30€','12€','5€','8€','10€']},
+      {qty:'1,000',prices:['20€','12€','5€','50€','20€','9€','15€','18€']},
+      {qty:'5,000',prices:['45€','30€','15€','150€','60€','20€','40€','50€']},
+      {qty:'10,000',prices:['80€','60€','25€','250€','110€','35€','75€','90€']},
+      {qty:'Custom',prices:['Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis']}
+    ]
+  },
+  TikTok:{
+    services:['Followers','Likes','Views','Comments','Shares','Favorites','Reposts'],
+    rows:[
+      {qty:'100',prices:['5€','3€','1€','10€','5€','5€','5€']},
+      {qty:'500',prices:['15€','7€','3€','25€','12€','15€','15€']},
+      {qty:'1,000',prices:['25€','15€','5€','45€','22€','25€','25€']},
+      {qty:'5,000',prices:['50€','35€','12€','120€','65€','75€','Sur devis']},
+      {qty:'10,000',prices:['90€','70€','20€','220€','120€','140€','Sur devis']},
+      {qty:'Custom',prices:['Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis']}
+    ]
+  },
+  YouTube:{
+    services:['Subscribers','Views','Likes','Comments','Watch Hours','Shares'],
+    rows:[
+      {qty:'100',prices:['10€','2€','5€','15€','20€','5€']},
+      {qty:'500',prices:['40€','5€','10€','40€','60€','15€']},
+      {qty:'1,000',prices:['70€','10€','20€','70€','100€','25€']},
+      {qty:'5,000',prices:['200€','25€','50€','180€','300€','60€']},
+      {qty:'10,000',prices:['350€','45€','80€','320€','550€','110€']},
+      {qty:'Custom',prices:['Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis']}
+    ]
+  },
+  Facebook:{
+    services:['Page Likes','Post Likes','Followers','Comments'],
+    rows:[
+      {qty:'100',prices:['2€','1€','3€','5€']},
+      {qty:'500',prices:['10€','5€','15€','10€']},
+      {qty:'1,000',prices:['15€','10€','20€','50€']},
+      {qty:'5,000',prices:['60€','40€','75€','150€']},
+      {qty:'10,000',prices:['100€','75€','120€','200€']},
       {qty:'Up to 5 million',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
     ]
   },
-  TikTok:{services:['Followers','Likes','Views','Comments'],rows:quoteRows},
-  YouTube:{services:['Subscribers','Views','Likes','Watch Time'],rows:quoteRows},
-  Facebook:{services:['Page Likes','Post Likes','Followers','Shares'],rows:quoteRows},
-  'X / Twitter':{services:['Followers','Likes','Retweets','Impressions'],rows:quoteRows},
-  Spotify:{services:['Streams','Followers','Monthly Listeners','Playlist Adds'],rows:quoteRows},
-  Snapchat:{services:['Followers','Story Views','Subscriptions','Profile Views'],rows:quoteRows},
-  Twitch:{services:['Followers','Channel Views','Live Viewers','Clip Views'],rows:quoteRows},
-  Telegram:{services:['Channel Members','Post Views','Reactions','Comments'],rows:quoteRows}
+  'X / Twitter':{
+    services:['Followers','Likes','Reposts','Link Shares','Poll Votes','Views'],
+    rows:[
+      {qty:'100',prices:['15€','10€','Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'500',prices:['75€','50€','Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'1,000',prices:['150€','100€','Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'5,000',prices:['500€','400€','Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'10,000',prices:['1000€','800€','Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'Custom up to 5 million',prices:['Sur devis','Sur devis','Sur devis','Sur devis','Sur devis','Sur devis']}
+    ]
+  },
+  Spotify:{
+    services:['Plays','Followers','Monthly Listeners','Playlist Adds'],
+    rows:[
+      {qty:'100',prices:['2€','7€','10€','8€']},
+      {qty:'500',prices:['5€','15€','20€','18€']},
+      {qty:'1,000',prices:['10€','25€','40€','35€']},
+      {qty:'5,000',prices:['25€','70€','100€','90€']},
+      {qty:'10,000',prices:['45€','120€','170€','160€']},
+      {qty:'Custom',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
+    ]
+  },
+  Snapchat:{
+    services:['Followers','Story Views','Subscriptions','Profile Views'],
+    rows:[
+      {qty:'100',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'500',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'1,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'5,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'10,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'Up to 5 million',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
+    ]
+  },
+  Twitch:{
+    services:['Followers','Channel Views','Live Viewers','Clip Views'],
+    rows:[
+      {qty:'100',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'500',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'1,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'5,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'10,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'Up to 5 million',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
+    ]
+  },
+  Telegram:{
+    services:['Channel Members','Post Views','Reactions','Comments'],
+    rows:[
+      {qty:'100',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'500',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'1,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'5,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'10,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'Up to 5 million',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
+    ]
+  }
 };
 
 function getPricingGuide(platform){
   const platformName=platform||'Instagram';
   return pricingGuides[platformName]||{
     services:(services[platformName]||['Followers','Likes','Views','Comments']).slice(0,4),
-    rows:quoteRows
+    rows:[
+      {qty:'100',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'500',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'1,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'5,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'10,000',prices:['Sur devis','Sur devis','Sur devis','Sur devis']},
+      {qty:'Custom',prices:['Sur devis','Sur devis','Sur devis','Sur devis']}
+    ]
   };
 }
 
