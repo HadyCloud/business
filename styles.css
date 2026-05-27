@@ -92,3 +92,10 @@
   .custom-row{grid-template-columns:1fr}
   .custom-row .btn{width:100%}
 }
+
+.hero-card .choice{display:block;width:100%}
+
+@media(max-width:760px){
+  .hero-card .choice{margin:0}
+  .hero-card .choice+.choice{margin-top:12px}
+}
