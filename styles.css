@@ -130,3 +130,14 @@
   .links a:nth-child(3){background:rgba(192,132,252,.13);border-color:rgba(192,132,252,.22)}
   .contact-menu{right:0;top:48px}
 }
+
+.service-tile{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:6px}
+.service-tile strong{display:block;font-size:15px;line-height:1.15;font-weight:800;color:white}
+.service-tile .service-options{display:block;font-size:12px;line-height:1;color:rgba(255,255,255,.48);font-weight:500;letter-spacing:.01em}
+.service-tile.active .service-options{color:rgba(255,255,255,.66)}
+
+@media(max-width:760px){
+  .service-tile{gap:5px;min-height:78px}
+  .service-tile strong{font-size:13px}
+  .service-tile .service-options{font-size:11px}
+}
