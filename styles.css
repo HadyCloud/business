@@ -99,3 +99,12 @@
 @media(min-width:761px){
   .final-actions{justify-content:center}
 }
+
+@media(max-width:760px){
+  .nav-inner{height:auto;min-height:0;display:grid;grid-template-columns:1fr auto;align-items:center;row-gap:8px;padding:8px 0 7px}
+  .links{grid-column:1/-1;display:flex;gap:7px;overflow-x:auto;padding:2px 0;scroll-snap-type:x proximity}
+  .links::-webkit-scrollbar{display:none}
+  .links a{flex:0 0 auto;scroll-snap-align:start;padding:8px 10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);border-radius:999px;font-size:12px;line-height:1;white-space:nowrap;color:rgba(255,255,255,.78)}
+  .links a:hover{color:white;background:rgba(255,255,255,.1)}
+  .links .cart-count{min-width:18px;height:18px;font-size:10px;margin-left:4px}
+}
