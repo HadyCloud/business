@@ -95,3 +95,7 @@
 
 .choice-card{display:flex;flex-direction:column;gap:16px}
 .choice-card>.choice{display:block;width:100%;margin:0;flex:0 0 auto}
+
+@media(min-width:761px){
+  .final-actions{justify-content:center}
+}
