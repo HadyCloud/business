@@ -111,3 +111,22 @@
   .links a:hover{color:white;background:rgba(255,255,255,.1)}
   .links .cart-count{min-width:18px;height:18px;font-size:10px;margin-left:4px}
 }
+
+.mobile-menu-btn{display:none}
+
+@media(max-width:760px){
+  .nav{position:sticky}
+  .nav-inner{height:66px;min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:0}
+  .brand{grid-column:auto;grid-row:auto;min-width:0}
+  .brand .logo{flex:0 0 auto}
+  .nav-actions{grid-column:auto;grid-row:auto;justify-self:auto;gap:8px}
+  .nav-actions .mobile-menu-btn{display:inline-flex;width:auto;min-height:40px;padding:10px 15px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14)}
+  .nav-actions>a.ghost{display:none}
+  .nav-actions .white{width:auto;min-height:40px;padding:10px 16px}
+  .links{position:absolute;left:14px;right:14px;top:calc(100% + 8px);z-index:80;display:none;width:auto;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:10px;border:1px solid rgba(255,255,255,.12);background:rgba(8,8,12,.94);backdrop-filter:blur(18px);border-radius:24px;box-shadow:0 22px 70px rgba(0,0,0,.45);overflow:visible}
+  .nav.mobile-open .links{display:grid}
+  .links a{display:flex;align-items:center;justify-content:space-between;min-height:48px;padding:12px 13px;border-radius:16px;background:rgba(255,255,255,.06);font-size:13px;font-weight:800;color:white}
+  .links a:first-child{background:rgba(110,231,183,.13);border-color:rgba(110,231,183,.22)}
+  .links a:nth-child(3){background:rgba(192,132,252,.13);border-color:rgba(192,132,252,.22)}
+  .contact-menu{right:0;top:48px}
+}

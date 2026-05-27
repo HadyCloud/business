@@ -2,8 +2,9 @@ const WHATSAPP_NUMBER = '33603939226';
 const INSTAGRAM_URL = 'https://instagram.com/locabey.official';
 const EMAIL = 'contact@locabey.com';
 
-function toggleContact(){document.querySelector('.contact-wrap')?.classList.toggle('open')}
-document.addEventListener('click',e=>{const w=document.querySelector('.contact-wrap');if(w&&!w.contains(e.target))w.classList.remove('open')})
+function toggleContact(){document.querySelector('.contact-wrap')?.classList.toggle('open');document.querySelector('.nav')?.classList.remove('mobile-open')}
+function toggleMobileNav(e){e?.stopPropagation();document.querySelector('.nav')?.classList.toggle('mobile-open');document.querySelector('.contact-wrap')?.classList.remove('open')}
+document.addEventListener('click',e=>{const w=document.querySelector('.contact-wrap');if(w&&!w.contains(e.target))w.classList.remove('open');const n=document.querySelector('.nav');if(n&&!n.contains(e.target))n.classList.remove('mobile-open')})
 
 function getStoredCart(){try{return JSON.parse(localStorage.getItem('locabeyCart')||'[]')}catch{return[]}}
 function setStoredCart(cart){localStorage.setItem('locabeyCart',JSON.stringify(cart));updateCartCount()}
@@ -12,7 +13,7 @@ function openWhatsAppMessage(message){window.open(`https://wa.me/${WHATSAPP_NUMB
 function openInstagram(){window.open(INSTAGRAM_URL,'_blank')}
 function openEmail(subject='LocaBey request',body='Hi LocaBey, I would like to discuss a project.'){window.location.href=`mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`}
 function nav(){return `
-<nav class="nav"><div class="wrap nav-inner"><a class="brand" href="index.html"><div class="logo">LB</div>LocaBey</a><div class="links"><a href="index.html">Home</a><a href="social-growth.html">Social Growth</a><a href="agency.html">Agency Services</a><a href="cart.html">Cart <span class="cart-count" data-cart-count>0</span></a></div><div class="nav-actions"><a class="btn ghost" href="cart.html">Cart <span class="cart-count" data-cart-count>0</span></a><div class="contact-wrap"><button class="btn white" onclick="toggleContact()">Contact</button><div class="contact-menu"><a href="javascript:void(0)" onclick="openWhatsAppMessage('Hi LocaBey, I need help choosing the right service.')">WhatsApp</a><a href="javascript:void(0)" onclick="openInstagram()">Instagram DM</a><a href="javascript:void(0)" onclick="openEmail()">Email</a></div></div></div></div></nav>`}
+<nav class="nav"><div class="wrap nav-inner"><a class="brand" href="index.html"><div class="logo">LB</div>LocaBey</a><div class="links"><a href="index.html">Home</a><a href="social-growth.html">Social Growth</a><a href="agency.html">Agency Services</a><a href="cart.html">Cart <span class="cart-count" data-cart-count>0</span></a></div><div class="nav-actions"><button class="btn ghost mobile-menu-btn" onclick="toggleMobileNav(event)">Menu</button><a class="btn ghost" href="cart.html">Cart <span class="cart-count" data-cart-count>0</span></a><div class="contact-wrap"><button class="btn white" onclick="toggleContact()">Contact</button><div class="contact-menu"><a href="javascript:void(0)" onclick="openWhatsAppMessage('Hi LocaBey, I need help choosing the right service.')">WhatsApp</a><a href="javascript:void(0)" onclick="openInstagram()">Instagram DM</a><a href="javascript:void(0)" onclick="openEmail()">Email</a></div></div></div></div></nav>`}
 function footer(){return `<footer><div class="wrap footer-inner"><strong style="color:white">LocaBey</strong><span><a href="index.html">Home</a> · <a href="social-growth.html">Social Growth</a> · <a href="agency.html">Agency Services</a> · <a href="cart.html">Cart</a> · Contact · Terms · Privacy</span><span>© 2026 LocaBey · Paris</span></div></footer>`}
 function injectShell(){document.body.insertAdjacentHTML('afterbegin',nav());document.body.insertAdjacentHTML('beforeend',footer());updateCartCount()}
 
