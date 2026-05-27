@@ -93,9 +93,5 @@
   .custom-row .btn{width:100%}
 }
 
-.hero-card .choice{display:block;width:100%}
-
-@media(max-width:760px){
-  .hero-card .choice{margin:0}
-  .hero-card .choice+.choice{margin-top:12px}
-}
+.choice-card{display:flex;flex-direction:column;gap:16px}
+.choice-card>.choice{display:block;width:100%;margin:0;flex:0 0 auto}
