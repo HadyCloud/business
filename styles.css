@@ -151,6 +151,10 @@
   .page-social-growth .hero-right{display:block;width:100%}
   .page-social-growth .hero-right .sub{margin-top:26px;font-size:20px}
 }
+@media(max-width:760px){
+  .page-social-growth .hero{padding:42px 0 26px;gap:0;flex-direction:column;align-items:flex-start}
+  .page-social-growth .hero-right .sub{margin-top:18px;font-size:16px;line-height:1.58}
+}
 
 .service-tile{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:6px}
 .service-tile strong{display:block;font-size:15px;line-height:1.15;font-weight:800;color:white}
