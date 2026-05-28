@@ -139,6 +139,7 @@
   .contact-menu{right:0;top:48px}
 }
 
+.page-social-growth #builder .section-head h2{font-size:clamp(24px,3.2vw,38px);letter-spacing:-.04em;color:rgba(255,255,255,.82);font-weight:700}
 /* social-growth page hero — desktop two-column, scoped to avoid affecting other pages */
 .page-social-growth .hero{display:flex;flex-direction:row;align-items:center;gap:48px;padding:88px 0 48px}
 .page-social-growth .hero-left{flex:0 0 auto;max-width:520px}
@@ -153,7 +154,7 @@
 }
 @media(max-width:760px){
   .page-social-growth .hero{padding:22px 0 26px;gap:0;flex-direction:column;align-items:flex-start}
-  .page-social-growth .hero-right .sub{margin-top:18px;font-size:16px;line-height:1.58}
+  .page-social-growth .hero-right{display:none}
 }
 
 .service-tile{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:6px}
