@@ -194,8 +194,7 @@
 .growth-service strong::before{content:'●';color:#6ee7b7;margin-right:8px;font-size:9px;vertical-align:middle}
 
 @media(max-width:760px){
-  .chips .chip:nth-child(n+6){display:none}
-  .trust-list{gap:7px;margin:14px 0}
+.trust-list{gap:7px;margin:14px 0}
   .trust-list div{font-size:13px;padding-left:18px}
   .panel .btn{margin-top:18px;min-height:50px}
 }
