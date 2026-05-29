@@ -166,7 +166,7 @@
 
 /* Point 4 — Bridge redesign */
 .bridge-headline{font-size:42px;font-weight:900;letter-spacing:-.055em;line-height:1;color:white}
-.bridge-sub{margin-top:6px;color:rgba(255,255,255,.58);font-size:15px;line-height:2;text-align:center;width:fit-content}
+.bridge-sub{margin-top:12px;max-width:580px;color:rgba(255,255,255,.6);font-size:16px;line-height:1.65}
 .bridge-green{color:#6ee7b7;font-weight:800}
 .bridge-purple{color:#d8b4fe;font-weight:800}
 .bridge-or{color:rgba(255,255,255,.35);margin:0 10px;font-weight:400}
@@ -174,6 +174,6 @@
 @media(max-width:760px){
   .bridge{padding:4px 0 28px}
   .bridge-headline{font-size:28px;letter-spacing:-.04em}
-  .bridge-sub{font-size:13px;margin-top:4px}
+  .bridge-sub{font-size:14px;margin-top:8px;line-height:1.55}
   .bridge-or{margin:0 8px}
 }
