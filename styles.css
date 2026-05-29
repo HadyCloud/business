@@ -194,6 +194,9 @@
 .growth-service strong::before{content:'●';color:#6ee7b7;margin-right:8px;font-size:9px;vertical-align:middle}
 .growth-service{margin-top:10px}
 .panel-agency p + .service{margin-top:10px}
+.final-box{background:radial-gradient(circle at 20% 40%,rgba(34,197,94,.16),transparent 38%),radial-gradient(circle at 80% 60%,rgba(168,85,247,.2),transparent 40%),rgba(255,255,255,.06)}
+.note a{color:white;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.note a:hover{opacity:.75}
 
 @media(max-width:760px){
 .trust-list{gap:7px;margin:14px 0}
