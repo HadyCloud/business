@@ -191,6 +191,7 @@
 .trust-list div::before{content:'✓';position:absolute;left:0;color:#6ee7b7;font-weight:900}
 
 .panel-agency .service strong::before{content:'●';color:#d8b4fe;margin-right:8px;font-size:9px;vertical-align:middle}
+.growth-service strong::before{content:'●';color:#6ee7b7;margin-right:8px;font-size:9px;vertical-align:middle}
 
 @media(max-width:760px){
   .chips .chip:nth-child(n+6){display:none}
