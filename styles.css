@@ -175,7 +175,7 @@
 @media(max-width:760px){
   .bridge{padding:4px 0 28px}
   .bridge-headline{font-size:28px;letter-spacing:-.04em}
-  .bridge-choices{margin-top:14px;gap:8px}
-  .bridge-pill{font-size:13px;padding:9px 16px}
-  .bridge-or{margin:0 10px;font-size:12px}
+  .bridge-choices{margin-top:10px;gap:6px}
+  .bridge-pill{font-size:11px;padding:7px 12px}
+  .bridge-or{margin:0 7px;font-size:11px}
 }
