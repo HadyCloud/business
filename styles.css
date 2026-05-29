@@ -179,3 +179,22 @@
   .bridge-pill{font-size:11px;padding:7px 12px}
   .bridge-or{margin:0 7px;font-size:7px}
 }
+
+/* Point 5 — Panel redesign */
+.panel-growth{background:radial-gradient(circle at 50% 0%,rgba(110,231,183,.16),rgba(34,197,94,.06) 65%);border:1px solid rgba(110,231,183,.2);border-top:2px solid rgba(110,231,183,.5)}
+.panel-agency{background:radial-gradient(circle at 50% 0%,rgba(216,180,254,.16),rgba(168,85,247,.06) 65%);border:1px solid rgba(216,180,254,.2);border-top:2px solid rgba(216,180,254,.5)}
+.panel h2{font-size:clamp(40px,5vw,62px)}
+.panel .btn{display:flex;width:100%;justify-content:center;margin-top:24px}
+
+.trust-list{display:flex;flex-direction:column;gap:9px;margin:20px 0}
+.trust-list div{color:rgba(255,255,255,.75);font-size:14px;padding-left:22px;position:relative;line-height:1.4}
+.trust-list div::before{content:'✓';position:absolute;left:0;color:#6ee7b7;font-weight:900}
+
+.panel-agency .service strong::before{content:'●';color:#d8b4fe;margin-right:8px;font-size:9px;vertical-align:middle}
+
+@media(max-width:760px){
+  .chips .chip:nth-child(n+6){display:none}
+  .trust-list{gap:7px;margin:14px 0}
+  .trust-list div{font-size:13px;padding-left:18px}
+  .panel .btn{margin-top:18px;min-height:50px}
+}
