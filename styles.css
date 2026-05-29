@@ -158,6 +158,9 @@
 .metric:nth-child(4){border-top:2px solid rgba(255,255,255,.2);background:radial-gradient(circle at 50% 0%,rgba(255,255,255,.09),rgba(255,255,255,.04) 65%)}
 
 @media(max-width:760px){
+  .proof{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(44%,1fr);grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 14px 28px;margin:0 -14px;gap:10px}
+  .proof::-webkit-scrollbar{display:none}
+  .metric{scroll-snap-align:start}
   .metric strong{font-size:32px}
   .metric span{line-height:1.4}
 }
