@@ -193,6 +193,7 @@
 .panel-agency .service strong::before{content:'●';color:#d8b4fe;margin-right:8px;font-size:9px;vertical-align:middle}
 .growth-service strong::before{content:'●';color:#6ee7b7;margin-right:8px;font-size:9px;vertical-align:middle}
 .growth-service{margin-top:10px}
+.panel-agency p + .service{margin-top:10px}
 
 @media(max-width:760px){
 .trust-list{gap:7px;margin:14px 0}
