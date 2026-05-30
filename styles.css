@@ -410,9 +410,3 @@
   .sheet-items::-webkit-scrollbar{display:none}
   .sheet-footer{padding:14px 18px 0;border-top:1px solid rgba(255,255,255,.07);flex-shrink:0}
 }
-
-/* ── Social growth page — glow accents ── */
-.page-social-growth .num{box-shadow:0 0 14px rgba(110,231,183,.45)}
-.page-social-growth .builder-panel{box-shadow:0 0 40px rgba(110,231,183,.06)}
-.page-social-growth .mini-card{border-top:2px solid rgba(110,231,183,.35);background:radial-gradient(circle at 50% 0%,rgba(110,231,183,.1),rgba(255,255,255,.04) 65%)}
-.page-social-growth .gradient-word{text-shadow:0 0 40px rgba(110,231,183,.3)}
