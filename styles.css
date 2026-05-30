@@ -213,7 +213,7 @@
   .row-left{animation-duration:90s}
   .testimonials-track:hover .testimonials-row{animation-play-state:paused}
 }
-.testimonials-strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 22px 16px;margin:0 -22px}
+.testimonials-strip{display:none!important}
 .testimonials-strip::-webkit-scrollbar{height:3px}.testimonials-strip::-webkit-scrollbar-track{background:rgba(255,255,255,.05);border-radius:99px}.testimonials-strip::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:99px}
 .testimonials-strip{padding-bottom:8px}
 .tcard{scroll-snap-align:start;flex:0 0 270px;border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:10px}
