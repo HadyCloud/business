@@ -211,7 +211,7 @@
 @media(min-width:761px){
   .row-right{animation-duration:90s}
   .row-left{animation-duration:90s}
-  .testimonials-track:hover .testimonials-row{animation-play-state:paused}
+
 }
 .testimonials-strip{display:none!important}
 .testimonials-strip::-webkit-scrollbar{height:3px}.testimonials-strip::-webkit-scrollbar-track{background:rgba(255,255,255,.05);border-radius:99px}.testimonials-strip::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:99px}
