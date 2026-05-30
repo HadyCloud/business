@@ -265,3 +265,35 @@
   .final h2{font-size:clamp(26px,8vw,34px);line-height:1;margin-bottom:12px}
   .final p{font-size:13px;line-height:1.5;margin-bottom:18px}
 }
+
+/* Social growth page — mobile sizing pass */
+@media(max-width:760px){
+  .page-social-growth .hero{padding:18px 0 8px}
+  .page-social-growth .section{padding:16px 0}
+  .page-social-growth .section-head{margin-bottom:12px}
+  .page-social-growth .section-head h2{font-size:21px}
+  .page-social-growth .section-head p{font-size:12px;line-height:1.5}
+  .builder-panel{padding:13px;border-radius:20px}
+  .summary-panel{padding:13px;border-radius:20px}
+  .step-head{margin:12px 0 8px}
+  .step-head h3{font-size:14px}
+  .num{width:26px;height:26px;font-size:12px}
+  .tile{min-height:60px;font-size:11px}
+  .icon{font-size:17px;margin-bottom:3px}
+  .service-tile{min-height:60px}
+  .service-tile strong{font-size:12px}
+  .service-tile .service-options{font-size:10px}
+  .qty-tile{min-height:76px}
+  .qty-tile .price{font-size:15px}
+  .qty-tile .per{font-size:9px}
+  .delivery-tile{min-height:48px;font-size:12px}
+  .price-guide{padding:11px;border-radius:16px}
+  .guide-top h4{font-size:14px;margin-bottom:4px}
+  .guide-top span{font-size:10px}
+  .summary-panel h3{font-size:18px;margin-bottom:10px}
+  .summary-line{font-size:12px;padding:8px 0}
+  .total{font-size:17px;margin-top:14px}
+  .cart-box{padding:12px;border-radius:18px}
+  .cart-item{font-size:12px;padding:9px 0}
+  .note{font-size:11px}
+}
