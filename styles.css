@@ -217,8 +217,50 @@
   .tcard span{font-size:11px}
 }
 
+/* Point 9 — Scroll animations */
+.fade-up{opacity:0;transform:translateY(16px);transition:opacity .5s ease-out,transform .5s ease-out}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+.fade-scale{opacity:0;transform:scale(.97);transition:opacity .6s ease-out,transform .6s ease-out}
+.fade-scale.visible{opacity:1;transform:scale(1)}
+.proof .metric.fade-up:nth-child(2){transition-delay:.08s}
+.proof .metric.fade-up:nth-child(3){transition-delay:.16s}
+.proof .metric.fade-up:nth-child(4){transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){.fade-up,.fade-scale{opacity:1;transform:none;transition:none}}
+
 @media(max-width:760px){
-.trust-list{gap:7px;margin:14px 0}
+  .trust-list{gap:7px;margin:14px 0}
   .trust-list div{font-size:13px;padding-left:18px}
   .panel .btn{margin-top:18px;min-height:50px}
+}
+
+/* Point 10 — Mobile sizing pass */
+@media(max-width:760px){
+  h1{font-size:clamp(30px,9vw,40px);line-height:1.02;letter-spacing:-.05em}
+  .hero{padding:20px 0 12px;gap:10px}
+  .hero-card{padding:12px}
+  .choice{padding:13px;border-radius:18px}
+  .choice h3{font-size:19px}
+  .choice p{font-size:12px;line-height:1.5}
+  .overline{font-size:11px;padding:6px 10px;margin-bottom:10px}
+  .bridge{padding:0 0 12px}
+  .bridge-headline{font-size:21px}
+  .bridge-choices{margin-top:7px}
+  .panel{padding:13px}
+  .panel h2{font-size:21px;white-space:nowrap}
+  .panel p{font-size:12px;line-height:1.5;margin-bottom:0}
+  .chips{margin:12px 0;gap:5px}
+  .chip{font-size:10px;padding:5px 8px}
+  .trust-list{margin:10px 0;gap:5px}
+  .trust-list div{font-size:11px;padding-left:16px}
+  .growth-service{margin-top:8px}
+  .panel{display:flex;flex-direction:column;height:100%}
+  .panel .btn{margin-top:auto!important}
+  .panel-agency .service{min-height:58px;padding:10px;border-radius:14px;gap:3px;justify-content:center}
+  .panel-agency .service strong{font-size:11px}
+  .panel-agency .service span{font-size:10px;line-height:1.35}
+  .panel .btn{min-height:42px;font-size:12px;margin-top:12px}
+  .final{padding:12px 0 24px}
+  .final-box{padding:24px 14px}
+  .final h2{font-size:clamp(26px,8vw,34px);line-height:1;margin-bottom:12px}
+  .final p{font-size:13px;line-height:1.5;margin-bottom:18px}
 }
