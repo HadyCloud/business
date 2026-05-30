@@ -380,6 +380,7 @@
 .cart-panel-items{flex:1;overflow-y:auto}
 .cart-panel-items::-webkit-scrollbar{display:none}
 .cart-panel-footer{padding:14px 18px 18px;border-top:1px solid rgba(255,255,255,.07);flex-shrink:0}
+.cart-page-panel{padding:0!important;position:static!important;max-height:none!important;overflow:visible!important}
 
 /* ── Mobile cart bottom sheet ── */
 .cart-sheet{display:none}
