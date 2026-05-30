@@ -147,8 +147,8 @@
 .plat-logo{width:20px;height:20px;object-fit:contain;display:block;margin:0 auto 2px}.s-icon{display:block;text-align:center}
 
 @media(max-width:760px){
-  .service-tile{gap:5px;min-height:78px}
-  .service-tile strong{font-size:13px}
+  .service-tile{gap:5px;min-height:78px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .service-tile strong{font-size:13px;text-align:center;width:100%}
   .service-tile .service-options{font-size:11px}
 }
 
@@ -293,9 +293,9 @@
 
   /* Service tiles: 3 cols, same height as platform tiles */
   .services{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
-  .service-tile{min-height:48px;gap:2px;padding:7px 6px;border-radius:13px}
-  .service-tile strong{font-size:11px;line-height:1.1}
-  .s-icon{font-size:13px}
+  .service-tile{min-height:48px;gap:2px;padding:7px 6px;border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+  .service-tile strong{font-size:11px;line-height:1.1;text-align:center;width:100%}
+  .s-icon{font-size:13px;display:block;text-align:center}
   .plat-logo{width:16px;height:16px;margin:0 auto 1px}
 
   /* Quantity grid: 3 cols, hide per-unit + badge to shrink tiles */
