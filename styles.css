@@ -200,7 +200,8 @@
 .note a:hover{opacity:.75}
 
 /* Point 7 — Testimonials strip */
-.testimonials{padding:16px 0 36px}.swipe-hint{display:none}
+.testimonials{padding:16px 0 36px;position:relative}.swipe-hint{display:none}.tscroll-btn{display:none}
+@media(min-width:761px){.tscroll-btn{display:grid;place-items:center;position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);color:white;font-size:16px;cursor:pointer;transition:opacity .2s,background .2s;z-index:3}.tscroll-btn:hover{background:rgba(255,255,255,.14)}.tscroll-prev{left:-18px}.tscroll-next{right:-18px}}
 .testimonials-strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 22px 16px;margin:0 -22px}
 .testimonials-strip::-webkit-scrollbar{height:3px}.testimonials-strip::-webkit-scrollbar-track{background:rgba(255,255,255,.05);border-radius:99px}.testimonials-strip::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:99px}
 .testimonials-strip{padding-bottom:8px}
