@@ -287,7 +287,7 @@
 
   /* Platform tiles: 3 cols, chip-like */
   .tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
-  .tile{min-height:48px;font-size:11px;padding:7px 5px;border-radius:13px}
+  .tile{min-height:48px;font-size:11px;padding:7px 5px;border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
   .tile strong{font-size:11px;line-height:1.1;font-weight:700}
   .icon{font-size:15px;margin-bottom:2px}
 
@@ -296,7 +296,7 @@
   .service-tile{min-height:48px;gap:2px;padding:7px 6px;border-radius:13px}
   .service-tile strong{font-size:11px;line-height:1.1}
   .s-icon{font-size:13px}
-  .plat-logo{width:16px;height:16px;margin-bottom:1px}
+  .plat-logo{width:16px;height:16px;margin:0 auto 1px}
 
   /* Quantity grid: 3 cols, hide per-unit + badge to shrink tiles */
   .qty-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
