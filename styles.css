@@ -142,8 +142,8 @@
 
 .page-social-growth #builder .section-head h2{font-size:clamp(24px,3.2vw,38px);letter-spacing:-.04em;color:rgba(255,255,255,.82);font-weight:700}@media(max-width:760px){.page-social-growth .hero .sub,.page-social-growth .hero .hero-card{display:none}}
 .service-tile{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px}
-.service-tile strong{display:block;font-size:15px;line-height:1.15;font-weight:800;color:white}
-.s-icon{display:block;font-size:16px;line-height:1}
+.service-tile strong{display:block;font-size:15px;line-height:1.15;font-weight:800;color:white;text-align:center;width:100%}
+.s-icon{display:block;font-size:16px;line-height:1;text-align:center;width:100%}
 .plat-logo{width:20px;height:20px;object-fit:contain;display:block;margin:0 auto 2px}.s-icon{display:block;text-align:center}
 
 @media(max-width:760px){
