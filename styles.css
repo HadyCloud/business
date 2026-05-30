@@ -284,21 +284,21 @@
 
   /* Platform tiles: 3 cols, chip-like */
   .tiles{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
-  .tile{min-height:48px;font-size:10px;padding:7px 5px;border-radius:13px}
-  .tile strong{font-size:10px;line-height:1.1;font-weight:700}
+  .tile{min-height:48px;font-size:11px;padding:7px 5px;border-radius:13px}
+  .tile strong{font-size:11px;line-height:1.1;font-weight:700}
   .icon{font-size:15px;margin-bottom:2px}
 
-  /* Service tiles: 3 cols (halves the rows vs 2-col) */
+  /* Service tiles: 3 cols, same height as platform tiles */
   .services{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
-  .service-tile{min-height:44px;gap:2px;padding:7px 6px;border-radius:13px}
-  .service-tile strong{font-size:10px;line-height:1.1}
-  .service-tile .service-options{font-size:9px}
+  .service-tile{min-height:48px;gap:2px;padding:7px 6px;border-radius:13px}
+  .service-tile strong{font-size:11px;line-height:1.1}
+  .service-tile .service-options{font-size:10px}
 
   /* Quantity grid: 3 cols, hide per-unit + badge to shrink tiles */
   .qty-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}
-  .qty-tile{min-height:42px;padding:7px 5px;border-radius:13px}
-  .qty-tile strong{font-size:10px;line-height:1.1;font-weight:700}
-  .qty-tile .price{font-size:11px;font-weight:900;margin-top:3px}
+  .qty-tile{min-height:48px;padding:7px 5px;border-radius:13px}
+  .qty-tile strong{font-size:11px;line-height:1.1;font-weight:700}
+  .qty-tile .price{font-size:12px;font-weight:900;margin-top:3px}
   .qty-tile .per{display:none}
   .qty-grid .badge{display:none}
 
