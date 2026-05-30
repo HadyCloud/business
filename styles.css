@@ -216,7 +216,7 @@
 .testimonials-strip{display:none!important}
 .testimonials-strip::-webkit-scrollbar{height:3px}.testimonials-strip::-webkit-scrollbar-track{background:rgba(255,255,255,.05);border-radius:99px}.testimonials-strip::-webkit-scrollbar-thumb{background:rgba(255,255,255,.2);border-radius:99px}
 .testimonials-strip{padding-bottom:8px}
-.tcard{scroll-snap-align:start;flex:0 0 270px;border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.tcard{scroll-snap-align:start;flex:0 0 270px;border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:10px;transform:translateZ(0);backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .tcard-green{background:radial-gradient(circle at 20% 0%,rgba(110,231,183,.18),rgba(34,197,94,.06) 65%);border:1px solid rgba(110,231,183,.25);border-top:2px solid rgba(110,231,183,.5)}
 .tcard-purple{background:radial-gradient(circle at 20% 0%,rgba(216,180,254,.18),rgba(168,85,247,.06) 65%);border:1px solid rgba(216,180,254,.25);border-top:2px solid rgba(216,180,254,.5)}
 .tcard-stars{color:#fbbf24;font-size:13px;letter-spacing:1px}
