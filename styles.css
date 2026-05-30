@@ -23,7 +23,7 @@
   .metric span{font-size:12px;line-height:1.25}
   .bridge{padding:0 0 22px}
   .bridge-inner{border-radius:22px;text-align:left;font-size:14px}
-  .paths{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(86%,1fr);grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 14px 42px;margin:0 -14px}
+  .paths{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(86%,1fr);grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 14px 24px;margin:0 -14px}
   .paths::-webkit-scrollbar,.platforms::-webkit-scrollbar,.service-grid::-webkit-scrollbar{display:none}
   .panel{scroll-snap-align:start;min-height:100%}
   .panel h2,.section-head h2{font-size:clamp(32px,10vw,44px);letter-spacing:-.05em}
@@ -210,7 +210,7 @@
 .tcard span{color:rgba(255,255,255,.45);font-size:12px;font-weight:600}
 
 @media(max-width:760px){
-  .testimonials{padding:10px 0 24px}
+  .testimonials{padding:0 0 0}
   .testimonials-strip{padding:0 14px 12px;margin:0 -14px;gap:10px}
   .tcard{flex:0 0 230px;padding:16px;border-radius:20px}
   .tcard p{font-size:13px}
