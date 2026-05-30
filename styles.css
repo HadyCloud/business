@@ -200,7 +200,7 @@
 .note a:hover{opacity:.75}
 
 /* Point 7 — Testimonials strip */
-.testimonials{padding:16px 0 36px}
+.testimonials{padding:16px 0 36px}.swipe-hint{display:none}
 .testimonials-strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 22px 16px;margin:0 -22px}
 .testimonials-strip::-webkit-scrollbar{display:none}
 .tcard{scroll-snap-align:start;flex:0 0 270px;border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:10px}
@@ -211,8 +211,9 @@
 .tcard span{color:rgba(255,255,255,.45);font-size:12px;font-weight:600}
 
 @media(max-width:760px){
-  .testimonials{padding:0 0 0;position:relative}
-  .testimonials::after{content:'';position:absolute;top:0;right:0;width:72px;height:100%;background:linear-gradient(to left,#07070A 0%,transparent 100%);pointer-events:none;z-index:2}
+  .testimonials{padding:0 0 0}
+  .swipe-hint{font-size:12px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:.04em;margin-bottom:10px;transition:opacity .3s}
+  .swipe-hint.hidden{opacity:0;pointer-events:none}
   .testimonials-strip{padding:0 14px 12px;margin:0 -14px;gap:10px}
   .tcard{flex:0 0 230px;padding:16px;border-radius:20px}
   .tcard p{font-size:13px}
