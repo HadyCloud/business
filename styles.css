@@ -330,13 +330,6 @@
   .page-social-growth{padding-bottom:76px}
 }
 
-/* ── Mobile selection preview strip ── */
-.mob-preview{display:none}
-@media(max-width:760px){
-  .mob-preview{display:flex;align-items:center;gap:5px;flex-wrap:wrap;padding:7px 10px;background:rgba(110,231,183,.07);border:1px solid rgba(110,231,183,.14);border-radius:12px;margin-bottom:9px;font-size:11px;color:rgba(255,255,255,.6);line-height:1}
-  .mob-dot{color:rgba(255,255,255,.22)}
-  .mob-price{margin-left:auto;color:#6ee7b7;font-size:12px;font-weight:900}
-}
 
 /* ── Sticky cart bar ── */
 .cart-bar{display:none}
