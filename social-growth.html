@@ -12,20 +12,4 @@
   <span id="sumPlatform" style="display:none"></span><span id="sumService" style="display:none"></span><span id="sumQuantity" style="display:none"></span><span id="sumDelivery" style="display:none"></span><span id="sumUrl" style="display:none"></span><span id="sumPrice" style="display:none"></span>
 </div></div></section>
 <section class="final"><div class="final-box"><h2>Ready to <span class="gradient-word">boost your account?</span></h2><p>Choose your platform, service and quantity. Add multiple boosts to cart and confirm everything before payment.</p><div class="final-actions"><button class="btn green" onclick="document.getElementById('builder').scrollIntoView()">Build my order →</button><button class="btn ghost" onclick="openWhatsApp()">Ask us on WhatsApp</button></div></div></section>
-<!-- Mobile: cart bottom sheet -->
-<div class="sheet-bg" id="sheetBg" onclick="closeSheet()"></div>
-<div class="cart-sheet" id="cartSheet">
-  <div class="sheet-handle"></div>
-  <div class="sheet-header">
-    <h3>Your Cart</h3>
-    <button class="sheet-close" onclick="closeSheet()">×</button>
-  </div>
-  <div class="sheet-items" id="sheetItems"></div>
-  <div class="sheet-footer">
-    <div class="sheet-total-row"><span>Total</span><strong id="sheetTotal">0€</strong></div>
-    <p class="note sheet-note">No password needed. Confirmed before payment.</p>
-    <button class="btn green" style="width:100%;margin-top:12px;min-height:48px" onclick="openWhatsApp();closeSheet()">Send order on WhatsApp ↗</button>
-    <button class="btn muted-btn" style="width:100%;margin-top:8px;min-height:42px" onclick="clearCart()">Clear cart</button>
-  </div>
-</div>
 </main><script src="app.js"></script></body></html>
