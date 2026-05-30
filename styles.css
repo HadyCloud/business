@@ -206,11 +206,11 @@
 .testimonials-strip{display:none}
 .testimonials-track{display:flex;flex-direction:column;gap:14px;overflow:hidden;padding:4px 0}
 .testimonials-row{display:flex;gap:14px;width:max-content}
-.row-right{animation:marquee-right 60s linear infinite;will-change:transform}
-.row-left{display:none}
+.row-right{animation:marquee-right 120s linear infinite;will-change:transform}
+.row-left{animation:marquee-left 120s linear infinite;will-change:transform}
 @media(min-width:761px){
   .row-right{animation-duration:90s}
-  .row-left{display:flex;animation:marquee-left 90s linear infinite;will-change:transform}
+  .row-left{animation-duration:90s}
   .testimonials-track:hover .testimonials-row{animation-play-state:paused}
 }
 .testimonials-strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 22px 16px;margin:0 -22px}
