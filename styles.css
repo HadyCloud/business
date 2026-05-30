@@ -211,7 +211,8 @@
 .tcard span{color:rgba(255,255,255,.45);font-size:12px;font-weight:600}
 
 @media(max-width:760px){
-  .testimonials{padding:0 0 0}
+  .testimonials{padding:0 0 0;position:relative}
+  .testimonials::after{content:'';position:absolute;top:0;right:0;width:72px;height:100%;background:linear-gradient(to left,#07070A 0%,transparent 100%);pointer-events:none;z-index:2}
   .testimonials-strip{padding:0 14px 12px;margin:0 -14px;gap:10px}
   .tcard{flex:0 0 230px;padding:16px;border-radius:20px}
   .tcard p{font-size:13px}
