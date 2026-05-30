@@ -200,15 +200,17 @@
 .note a:hover{opacity:.75}
 
 /* Point 7 — Testimonials strip */
-.testimonials{padding:16px 0 36px}.swipe-hint{display:none}.testimonials-track{display:none}
+.testimonials{padding:16px 0 36px}.swipe-hint{display:none}
 @keyframes marquee-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 @keyframes marquee-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.testimonials-strip{display:none}
+.testimonials-track{display:flex;flex-direction:column;gap:14px;overflow:hidden;padding:4px 0}
+.testimonials-row{display:flex;gap:14px;width:max-content}
+.row-right{animation:marquee-right 60s linear infinite;will-change:transform}
+.row-left{display:none}
 @media(min-width:761px){
-  .testimonials-strip,.swipe-hint{display:none!important}
-  .testimonials-track{display:flex;flex-direction:column;gap:14px;overflow:hidden;padding:4px 0}
-  .testimonials-row{display:flex;gap:14px;width:max-content}
-  .row-right{animation:marquee-right 90s linear infinite;will-change:transform}
-  .row-left{animation:marquee-left 90s linear infinite;will-change:transform}
+  .row-right{animation-duration:90s}
+  .row-left{display:flex;animation:marquee-left 90s linear infinite;will-change:transform}
   .testimonials-track:hover .testimonials-row{animation-play-state:paused}
 }
 .testimonials-strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 22px 16px;margin:0 -22px}
@@ -223,10 +225,7 @@
 
 @media(max-width:760px){
   .testimonials{padding:0 0 0}
-  .swipe-hint{font-size:12px;font-weight:700;color:rgba(255,255,255,.35);letter-spacing:.04em;margin-bottom:10px;transition:opacity .3s}
-  .swipe-hint.hidden{opacity:0;pointer-events:none}
-  .testimonials-strip{padding:0 14px 12px;margin:0 -14px;gap:10px}
-  .tcard{flex:0 0 230px;padding:16px;border-radius:20px}
+  .tcard{flex:0 0 220px;padding:16px;border-radius:20px}
   .tcard p{font-size:13px}
   .tcard span{font-size:11px}
 }
