@@ -427,6 +427,8 @@
   .page-social-growth .qty-grid{grid-template-columns:repeat(6,1fr);gap:8px}
   .page-social-growth .qty-tile{min-height:62px;padding:8px 6px;border-radius:14px}
   .page-social-growth .qty-tile .price{font-size:15px;margin-top:4px}
+  .page-social-growth .qty-tile .per{display:none}
+  .page-social-growth .qty-tile .badge{display:none}
   .page-social-growth .delivery-grid{grid-template-columns:repeat(2,1fr);gap:8px}
   .page-social-growth .delivery-tile{min-height:48px;border-radius:14px;font-size:13px}
 }
