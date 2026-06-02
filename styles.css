@@ -140,12 +140,9 @@
   .contact-menu{right:0;top:48px}
 }
 
-/* Agency page — mobile hero card compact */
+/* Agency page — hide hero card on mobile */
 @media(max-width:760px){
-  .page-agency .hero-card{padding:10px;border-radius:22px;gap:8px}
-  .page-agency .trust-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
-  .page-agency .trust{padding:10px 11px;border-radius:14px;min-height:0;font-size:12px;line-height:1.45}
-  .page-agency .trust strong{font-size:12px;margin-bottom:3px}
+  .page-agency .hero-card{display:none}
 }
 
 /* Agency page — purple accent theme */
