@@ -217,8 +217,8 @@ footer{border-top:1px solid rgba(255,255,255,.08);font-size:14px;padding:22px 0}
 .agency-add-btn span{width:22px;height:22px;border-radius:50%;background:rgba(192,132,252,.2);border:1px solid rgba(192,132,252,.4);display:grid;place-items:center;font-size:14px;flex-shrink:0;transition:all .18s}
 .agency-add-btn:hover{background:rgba(192,132,252,.2);border-color:rgba(192,132,252,.55);color:white}
 .agency-add-btn:hover span{background:rgba(192,132,252,.35);border-color:rgba(192,132,252,.7)}
-.agency-add-btn.added{cursor:pointer;border-color:rgba(110,231,183,.4);color:#6ee7b7;background:rgba(110,231,183,.08)}
-.agency-add-btn.added span{background:rgba(110,231,183,.2);border-color:rgba(110,231,183,.5)}
+.agency-add-btn.added{cursor:pointer;border-color:rgba(192,132,252,.5);color:#d8b4fe;background:rgba(192,132,252,.1)}
+.agency-add-btn.added span{background:rgba(192,132,252,.2);border-color:rgba(192,132,252,.5)}
 .cart-section-head{padding:10px 18px 4px;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)}
 .cart-section-head+.sheet-item{border-top:none}
 div+.cart-section-head{border-top:1px solid rgba(255,255,255,.07);padding-top:12px;margin-top:4px}
@@ -565,6 +565,7 @@ div+.cart-section-head{border-top:1px solid rgba(255,255,255,.07);padding-top:12
 /* ── Social growth page — glow accents ── */
 .page-social-growth .num{box-shadow:0 0 14px rgba(110,231,183,.45)}
 .page-social-growth .builder-panel{box-shadow:0 0 40px rgba(110,231,183,.06)}
+.page-social-growth .hero-card{border-color:rgba(110,231,183,.22);background:radial-gradient(circle at 65% 15%,rgba(110,231,183,.12),rgba(255,255,255,.04) 65%)}
 .page-social-growth .mini-card{border-top:2px solid rgba(110,231,183,.35);background:radial-gradient(circle at 50% 0%,rgba(110,231,183,.1),rgba(255,255,255,.04) 65%)}
 .page-social-growth .gradient-word{text-shadow:0 0 40px rgba(110,231,183,.3)}
 
