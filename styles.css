@@ -190,9 +190,8 @@
   .page-agency #services .service-grid{grid-template-columns:repeat(2,1fr);gap:18px;overflow:visible;grid-auto-flow:unset;grid-auto-columns:unset;scroll-snap-type:unset;padding-bottom:0}
   .page-agency #services .cat-panel[data-panel="community"] .service-grid{grid-template-columns:repeat(3,1fr)}
 }
-.page-agency #services .service{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-top:2px solid rgba(192,132,252,.4);border-radius:26px;padding:26px 22px;position:relative;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
-.page-agency #services .service::before{content:'';position:absolute;top:0;left:0;right:0;height:55%;background:radial-gradient(circle at 50% 0%,rgba(192,132,252,.1),transparent 70%);pointer-events:none}
-.page-agency #services .service:hover{transform:translateY(-5px);box-shadow:0 20px 52px rgba(192,132,252,.22);border-color:rgba(192,132,252,.65)}
+.page-agency #services .service{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.1);border-top:2px solid rgba(192,132,252,.45);border-radius:26px;padding:26px 22px;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;box-shadow:0 0 0 0 rgba(192,132,252,0)}
+.page-agency #services .service:hover{transform:translateY(-5px);box-shadow:0 8px 40px rgba(192,132,252,.28),0 0 0 1px rgba(192,132,252,.2);border-color:rgba(192,132,252,.7)}
 .page-agency #services .icon{font-size:40px;margin-bottom:2px;display:block;position:relative}
 .page-agency #services h4{font-size:18px;letter-spacing:-.03em;line-height:1.2;color:white;position:relative}
 .page-agency #services .outcome{font-size:13px;line-height:1.6;color:rgba(255,255,255,.58);position:relative}
