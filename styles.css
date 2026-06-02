@@ -173,6 +173,45 @@
   .page-agency .step p{grid-column:2;grid-row:2;font-size:12px;line-height:1.5;color:rgba(255,255,255,.5);margin-top:2px}
 }
 
+/* Agency services — category tabs */
+.cat-tabs{display:flex;gap:10px;margin-bottom:28px;justify-content:center;flex-wrap:wrap}
+.cat-tab{padding:12px 22px;border-radius:999px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:rgba(255,255,255,.55);font-size:14px;font-weight:700;cursor:pointer;transition:all .2s ease;font-family:inherit;display:inline-flex;align-items:center;gap:8px}
+.cat-tab:hover{background:rgba(192,132,252,.1);border-color:rgba(192,132,252,.3);color:rgba(255,255,255,.85)}
+.cat-tab.active{background:radial-gradient(circle at 50% 0%,rgba(192,132,252,.28),rgba(168,85,247,.12) 70%);border-color:rgba(192,132,252,.65);color:white;box-shadow:0 0 22px rgba(192,132,252,.28),0 4px 18px rgba(0,0,0,.3)}
+
+/* Agency services — panels */
+.cat-panel{display:none}
+.cat-panel.active{display:block;animation:catFadeUp .3s ease}
+@keyframes catFadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.cat-desc{font-size:16px;color:rgba(255,255,255,.58);line-height:1.6;margin-bottom:22px;text-align:center;max-width:580px;margin-left:auto;margin-right:auto}
+
+/* Agency services — god mode service cards */
+@media(min-width:761px){
+  .page-agency #services .service-grid{grid-template-columns:repeat(2,1fr);gap:18px;overflow:visible;grid-auto-flow:unset;grid-auto-columns:unset;scroll-snap-type:unset;padding-bottom:0}
+  .page-agency #services .cat-panel[data-panel="community"] .service-grid{grid-template-columns:repeat(3,1fr)}
+}
+.page-agency #services .service{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-top:2px solid rgba(192,132,252,.4);border-radius:26px;padding:26px 22px;position:relative;overflow:hidden;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.page-agency #services .service::before{content:'';position:absolute;top:0;left:0;right:0;height:55%;background:radial-gradient(circle at 50% 0%,rgba(192,132,252,.1),transparent 70%);pointer-events:none}
+.page-agency #services .service:hover{transform:translateY(-5px);box-shadow:0 20px 52px rgba(192,132,252,.22);border-color:rgba(192,132,252,.65)}
+.page-agency #services .icon{font-size:40px;margin-bottom:2px;display:block;position:relative}
+.page-agency #services h4{font-size:18px;letter-spacing:-.03em;line-height:1.2;color:white;position:relative}
+.page-agency #services .outcome{font-size:13px;line-height:1.6;color:rgba(255,255,255,.58);position:relative}
+.page-agency #services .included{justify-content:center;position:relative}
+.page-agency #services .mini-cta{margin-top:auto;padding:9px 22px;border-radius:999px;background:rgba(192,132,252,.1);border:1px solid rgba(192,132,252,.28);color:#d8b4fe;font-size:13px;justify-content:center;transition:background .18s,border-color .18s,color .18s;position:relative}
+.page-agency #services .service:hover .mini-cta{background:rgba(192,132,252,.22);border-color:rgba(192,132,252,.55);color:white}
+
+/* Agency services — mobile */
+@media(max-width:760px){
+  .cat-tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;gap:8px;padding-bottom:6px;scrollbar-width:none;margin-bottom:16px}
+  .cat-tabs::-webkit-scrollbar{display:none}
+  .cat-tab{flex-shrink:0;font-size:12px;padding:9px 14px}
+  .cat-desc{font-size:13px;margin-bottom:14px;text-align:left}
+  .page-agency #services .service-grid{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(76%,1fr);grid-template-columns:none;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding-bottom:6px}
+  .page-agency #services .service{scroll-snap-align:start;padding:18px 16px;border-radius:22px}
+  .page-agency #services .icon{font-size:32px}
+  .page-agency #services h4{font-size:16px}
+}
+
 /* Agency page — category cards accent */
 .page-agency .category{border-top:2px solid rgba(192,132,252,.45);background:radial-gradient(circle at 50% 0%,rgba(192,132,252,.1),rgba(255,255,255,.04) 65%)}
 
