@@ -145,6 +145,9 @@
   .page-agency .hero-card{display:none}
 }
 
+/* Agency page — category cards accent */
+.page-agency .category{border-top:2px solid rgba(192,132,252,.45);background:radial-gradient(circle at 50% 0%,rgba(192,132,252,.1),rgba(255,255,255,.04) 65%)}
+
 /* Agency page — purple accent theme */
 .page-agency .gradient-word{text-shadow:0 0 40px rgba(192,132,252,.35)}
 .page-agency .step span{box-shadow:0 0 14px rgba(192,132,252,.5)}
