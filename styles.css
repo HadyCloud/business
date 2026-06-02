@@ -172,6 +172,10 @@
 .page-agency .step span{box-shadow:0 0 14px rgba(192,132,252,.5)}
 .page-agency .mini-card{border-top:2px solid rgba(192,132,252,.35);background:radial-gradient(circle at 50% 0%,rgba(192,132,252,.1),rgba(255,255,255,.04) 65%)}
 
+/* Agency page — hero buttons */
+.page-agency .hero-actions .ghost{border-color:rgba(192,132,252,.4);color:rgba(216,180,254,.9)}
+.page-agency .hero-actions .ghost:hover{background:rgba(192,132,252,.1);border-color:rgba(192,132,252,.65)}
+
 /* Agency page — desktop hero-card purple accent */
 .page-agency .hero-card{border-color:rgba(192,132,252,.22);background:radial-gradient(circle at 65% 15%,rgba(192,132,252,.12),rgba(255,255,255,.04) 65%)}
 .page-agency .hero-card .trust{border-top:1px solid rgba(192,132,252,.18);border-left:2px solid rgba(192,132,252,.4)}
