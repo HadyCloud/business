@@ -145,6 +145,25 @@
   .page-agency .hero-card{display:none}
 }
 
+/* Agency page — "How it works" timeline */
+@media(min-width:761px){
+  .page-agency .steps{position:relative;align-items:start;gap:0}
+  .page-agency .steps::before{content:'';position:absolute;top:17px;left:5%;right:5%;height:2px;background:linear-gradient(90deg,transparent 0%,rgba(192,132,252,.45) 12%,rgba(192,132,252,.45) 88%,transparent 100%);z-index:0}
+  .page-agency .step{display:flex;flex-direction:column;align-items:center;text-align:center;background:none;border:none;border-radius:0;padding:0 8px;gap:12px}
+  .page-agency .step span{position:relative;z-index:1;margin-bottom:0;flex-shrink:0}
+  .page-agency .step strong{font-size:14px;line-height:1.3;letter-spacing:-.02em;color:white}
+  .page-agency .step p{font-size:13px;line-height:1.5;color:rgba(255,255,255,.5)}
+}
+@media(max-width:760px){
+  .page-agency .steps{grid-template-columns:1fr;gap:0;position:relative}
+  .page-agency .steps::before{content:'';position:absolute;left:16px;top:17px;bottom:17px;width:2px;background:linear-gradient(to bottom,rgba(192,132,252,.6),rgba(192,132,252,.2) 85%,transparent);z-index:0}
+  .page-agency .step{display:grid;grid-template-columns:34px 1fr;grid-template-rows:auto auto;column-gap:14px;row-gap:3px;align-items:start;background:none;border:none;border-radius:0;padding:0 0 22px 0}
+  .page-agency .step:last-child{padding-bottom:0}
+  .page-agency .step span{grid-column:1;grid-row:1/3;align-self:start;position:relative;z-index:1;margin-bottom:0;width:34px;height:34px}
+  .page-agency .step strong{grid-column:2;grid-row:1;font-size:14px;line-height:1.3;align-self:center;padding-top:7px}
+  .page-agency .step p{grid-column:2;grid-row:2;font-size:12px;line-height:1.5;color:rgba(255,255,255,.5);margin-top:2px}
+}
+
 /* Agency page — category cards accent */
 .page-agency .category{border-top:2px solid rgba(192,132,252,.45);background:radial-gradient(circle at 50% 0%,rgba(192,132,252,.1),rgba(255,255,255,.04) 65%)}
 
