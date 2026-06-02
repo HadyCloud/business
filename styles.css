@@ -254,7 +254,7 @@ div+.cart-section-head{border-top:1px solid rgba(255,255,255,.07);padding-top:12
 @media(min-width:761px){
   .page-agency .hero-actions .btn{padding:15px 38px;font-size:15px}
   .page-agency .section{padding:20px 0 26px}
-  .page-agency .audience-section,.page-agency #how-it-works,.page-agency #services{border-top:2px solid rgba(255,255,255,.06)}
+  .page-agency .audience-section,.page-agency #how-it-works,.page-agency #services{margin-top:3px}
   .page-agency .section-head{margin-bottom:18px}
   .page-agency .audience-section{padding:12px 0 18px}
   .page-agency .faq-section{padding:22px 0 30px}
