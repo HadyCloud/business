@@ -181,7 +181,7 @@
 
 /* Agency services — panels */
 .cat-panel{display:none}
-.cat-panel.active{display:block;animation:catFadeUp .3s ease}
+.cat-panel.active{display:block!important;animation:catFadeUp .3s ease;background:none!important;border:none!important;color:inherit!important}
 @keyframes catFadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .cat-desc{font-size:16px;color:rgba(255,255,255,.58);line-height:1.6;margin-bottom:22px;text-align:center;max-width:580px;margin-left:auto;margin-right:auto}
 
