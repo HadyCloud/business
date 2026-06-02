@@ -193,6 +193,15 @@
 .page-agency #services .service{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;background:radial-gradient(circle at 50% 0%,rgba(192,132,252,.18),rgba(255,255,255,.04) 65%);border:1px solid rgba(255,255,255,.1);border-top:2px solid rgba(192,132,252,.55);border-radius:26px;padding:26px 22px 22px;position:relative;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease;box-shadow:0 -4px 24px rgba(192,132,252,.12) inset}
 .page-agency #services .service:hover{transform:translateY(-5px);box-shadow:0 -4px 24px rgba(192,132,252,.18) inset,0 12px 44px rgba(192,132,252,.26);border-color:rgba(192,132,252,.7)}
 .svc-num{position:absolute;top:14px;left:16px;font-size:11px;font-weight:800;color:rgba(192,132,252,.55);letter-spacing:.06em;line-height:1;font-variant-numeric:tabular-nums}
+.agency-add-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:10px 16px;border-radius:999px;background:rgba(192,132,252,.1);border:1px solid rgba(192,132,252,.28);color:#d8b4fe;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s ease;margin-top:auto}
+.agency-add-btn span{width:22px;height:22px;border-radius:50%;background:rgba(192,132,252,.2);border:1px solid rgba(192,132,252,.4);display:grid;place-items:center;font-size:14px;flex-shrink:0;transition:all .18s}
+.agency-add-btn:hover{background:rgba(192,132,252,.2);border-color:rgba(192,132,252,.55);color:white}
+.agency-add-btn:hover span{background:rgba(192,132,252,.35);border-color:rgba(192,132,252,.7)}
+.agency-add-btn.added{cursor:default;border-color:rgba(110,231,183,.4);color:#6ee7b7;background:rgba(110,231,183,.08)}
+.agency-add-btn.added span{background:rgba(110,231,183,.2);border-color:rgba(110,231,183,.5)}
+.cart-section-head{padding:10px 18px 4px;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.cart-section-head+.sheet-item{border-top:none}
+div+.cart-section-head{border-top:1px solid rgba(255,255,255,.07);padding-top:12px;margin-top:4px}
 .page-agency #services .icon{font-size:40px;margin-bottom:2px;display:block;position:relative}
 .page-agency #services h4{font-size:18px;letter-spacing:-.03em;line-height:1.2;color:white;position:relative}
 .page-agency #services .outcome{font-size:13px;line-height:1.6;color:rgba(255,255,255,.58);position:relative}
