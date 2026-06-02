@@ -199,8 +199,6 @@
 .agency-add-btn:hover span{background:rgba(192,132,252,.35);border-color:rgba(192,132,252,.7)}
 .agency-add-btn.added{cursor:pointer;border-color:rgba(110,231,183,.4);color:#6ee7b7;background:rgba(110,231,183,.08)}
 .agency-add-btn.added span{background:rgba(110,231,183,.2);border-color:rgba(110,231,183,.5)}
-.agency-add-btn.added:hover{background:rgba(255,80,80,.1);border-color:rgba(255,120,120,.4);color:rgba(255,160,160,.9)}
-.agency-add-btn.added:hover span{background:rgba(255,80,80,.15);border-color:rgba(255,120,120,.5)}
 .cart-section-head{padding:10px 18px 4px;font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3)}
 .cart-section-head+.sheet-item{border-top:none}
 div+.cart-section-head{border-top:1px solid rgba(255,255,255,.07);padding-top:12px;margin-top:4px}
