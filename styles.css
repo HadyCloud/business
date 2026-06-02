@@ -254,6 +254,19 @@ div+.cart-section-head{border-top:1px solid rgba(255,255,255,.07);padding-top:12
 @media(min-width:761px){
   .page-agency .hero-actions .btn{padding:15px 38px;font-size:15px}
 }
+@media(min-width:761px){
+  .page-agency .hero{padding-bottom:80px}
+  .page-agency .section{padding:80px 0}
+  .page-agency .audience-section{padding:48px 0 56px}
+  .page-agency .section-head{margin-bottom:44px}
+  .page-agency .section-head h2{margin-bottom:14px}
+  .page-agency .section-head p{margin-top:0}
+  .page-agency .cat-tabs{margin-bottom:26px}
+  .page-agency .cat-desc{margin-bottom:34px;font-size:15px}
+  .page-agency .faq-section{padding:88px 0 100px}
+  .page-agency .faq-head{margin-bottom:64px}
+  .page-agency .final{padding:56px 0 104px}
+}
 
 /* Agency page — desktop hero-card purple accent */
 .page-agency .hero-card{border-color:rgba(192,132,252,.22);background:radial-gradient(circle at 65% 15%,rgba(192,132,252,.12),rgba(255,255,255,.04) 65%)}
