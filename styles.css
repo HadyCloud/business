@@ -172,6 +172,25 @@
 .page-agency .step span{box-shadow:0 0 14px rgba(192,132,252,.5)}
 .page-agency .mini-card{border-top:2px solid rgba(192,132,252,.35);background:radial-gradient(circle at 50% 0%,rgba(192,132,252,.1),rgba(255,255,255,.04) 65%)}
 
+/* Agency page — desktop hero-card purple accent */
+.page-agency .hero-card{border-color:rgba(192,132,252,.22);background:radial-gradient(circle at 65% 15%,rgba(192,132,252,.12),rgba(255,255,255,.04) 65%)}
+.page-agency .hero-card .trust{border-top:1px solid rgba(192,132,252,.18)}
+
+/* Agency page — mobile sizing pass */
+@media(max-width:760px){
+  .page-agency .hero{padding:20px 0 14px}
+  .page-agency .section{padding:20px 0}
+  .page-agency .section-head{margin-bottom:14px}
+  .page-agency .section-head h2{font-size:clamp(22px,7vw,30px)}
+  .page-agency .section-head p{font-size:13px;line-height:1.5}
+  .page-agency .audience-strip{padding:13px 15px;border-radius:20px}
+  .page-agency .audience-strip>p{font-size:13px;line-height:1.5;margin-bottom:10px}
+  .page-agency .category{margin-bottom:10px}
+  .page-agency .category-head h3{font-size:clamp(20px,6.5vw,26px);letter-spacing:-.04em}
+  .page-agency .category-head p{font-size:12px;line-height:1.5;margin-top:6px}
+  .page-agency .final{padding:10px 0 22px}
+}
+
 .page-social-growth #builder .section-head h2{font-size:clamp(24px,3.2vw,38px);letter-spacing:-.04em;color:rgba(255,255,255,.82);font-weight:700}@media(max-width:760px){.page-social-growth .hero .sub,.page-social-growth .hero .hero-card{display:none}}
 .service-tile{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:4px}
 .service-tile strong{display:block;font-size:15px;line-height:1.15;font-weight:800;color:white;text-align:center;width:100%}
