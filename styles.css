@@ -175,6 +175,9 @@
 /* Agency page — hero buttons */
 .page-agency .hero-actions .ghost{border-color:rgba(192,132,252,.4);color:rgba(216,180,254,.9)}
 .page-agency .hero-actions .ghost:hover{background:rgba(192,132,252,.1);border-color:rgba(192,132,252,.65)}
+@media(min-width:761px){
+  .page-agency .hero-actions .btn{padding:15px 38px;font-size:15px}
+}
 
 /* Agency page — desktop hero-card purple accent */
 .page-agency .hero-card{border-color:rgba(192,132,252,.22);background:radial-gradient(circle at 65% 15%,rgba(192,132,252,.12),rgba(255,255,255,.04) 65%)}
