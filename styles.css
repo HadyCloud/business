@@ -639,35 +639,12 @@ div+.cart-section-head{border-top:1px solid rgba(255,255,255,.07);padding-top:12
   --glow-agency:rgba(255,111,165,.28);
 }
 
-/* Living aurora behind everything (instant static bg stays as the LCP-safe base) */
-body::before{
-  content:"";position:fixed;inset:-25%;z-index:-1;pointer-events:none;
-  background:
-    radial-gradient(38% 42% at 16% 10%,rgba(34,211,238,.18),transparent 70%),
-    radial-gradient(40% 44% at 86% 14%,rgba(255,111,165,.16),transparent 72%),
-    radial-gradient(48% 52% at 62% 98%,rgba(167,139,250,.15),transparent 74%);
-  animation:auroraDrift 36s ease-in-out infinite alternate;
-}
-@keyframes auroraDrift{
-  0%{transform:translate3d(0,0,0) scale(1)}
-  50%{transform:translate3d(-2.5%,1.6%,0) scale(1.07)}
-  100%{transform:translate3d(2.5%,-1.6%,0) scale(1.04)}
-}
-/* Fine film grain for depth */
-body::after{
-  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;mix-blend-mode:overlay;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:120px 120px;
-}
-
-/* Animated aurora wordmark */
+/* Aurora wordmark — static gradient */
 .gradient-word{
   background:var(--aurora);background-size:220% auto;
   -webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 2px 22px rgba(167,139,250,.22));
-  animation:auroraShift 9s ease-in-out infinite;
 }
-@keyframes auroraShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 
 /* Buttons → gradient fills with signature glow */
 .btn.green{background:var(--grow-grad);color:#04221e;box-shadow:0 14px 34px var(--glow-grow),inset 0 1px 0 rgba(255,255,255,.42)}
@@ -689,7 +666,3 @@ body::after{
 ::selection{background:rgba(34,211,238,.32);color:#fff}
 html{scrollbar-color:rgba(255,255,255,.2) transparent}
 
-@media(prefers-reduced-motion:reduce){
-  body::before{animation:none}
-  .gradient-word{animation:none}
-}
